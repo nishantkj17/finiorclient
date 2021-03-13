@@ -1,0 +1,39 @@
+<h1>Update investment records</h1>
+
+<form #applicationForm="ngForm">
+
+  <div class="form-group">
+    <br />
+    <div class="col col-lg-12">
+      <label for="">Enter Fund Name</label>
+      <input type="text" name="fundname" [(ngModel)]=investmentDetails.fundName class="form-control" />
+    </div>
+    <br />
+    <div class="col col-lg-12" *ngIf="dates">
+      <label for="">Enter SIP Date</label>
+      <select id="dates" name="date" [(ngModel)]=investmentDetails.date class="form-control cust-sel">
+        <option [ngValue]="null" selected disabled>Select SIP Date</option>
+        <option *ngFor="let date of dates" [ngValue]="date">{{date}}</option>
+      </select>
+    </div>
+    <br />
+    <div class="col col-lg-12">
+      <label for="">Amount</label>
+      <input type="text" placeholder="Enter Amount" name="denomination" [(ngModel)]=investmentDetails.denomination class="form-control" />
+    </div>
+    <br />
+    <div class="col col-lg-12">
+      <label for="">Select Profile</label>
+      <select id="profile" name="profile" [(ngModel)]=investmentDetails.profile class="form-control cust-sel">
+        <option [ngValue]="null" selected disabled>Select Profile</option>
+        <option *ngFor="let name of profile" [ngValue]="name">{{name}}</option>
+      </select>
+    </div>
+    <br />
+    <div class="col col-lg-12">
+      <button (click)='updateInvestment()' class="btn btn-primary">Update Investment</button>
+    </div>
+  </div>
+
+</form>
+<mat-progress-bar mode="indeterminate" *ngIf="IsWait"></mat-progress-bar>

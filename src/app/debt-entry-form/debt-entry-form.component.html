@@ -1,0 +1,18 @@
+<h3 class="heading">Debt</h3>
+<div class="col col-lg-12">
+    <div class="col col-lg-12">
+    <select id="accountname" name="accountname" [(ngModel)]=debtRequest.accountname class="form-control cust-sel">
+        <option value="undefined" selected disabled>Select Loan account</option>
+        <option *ngFor="let name of account" [ngValue]="name">{{name}}</option>
+      </select>
+  </div>
+  <br/>
+  <div class="col col-lg-12">
+    <input type="text" placeholder="Enter Current Balance" name="currentbalance" [(ngModel)]=debtRequest.currentbalance class="form-control" />
+  </div>
+  <br/>
+  <div class="col col-lg-12">
+    <button (click)='saveDebtEntry()' class="btn btn-secondary mr-3">Debt Entry</button>
+    <button (click)='refreshDebtSavingChart()' class="btn btn-warning">Refresh Debt/Saving chart</button>
+  </div>
+</div>

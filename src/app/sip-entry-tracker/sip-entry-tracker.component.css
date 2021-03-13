@@ -1,0 +1,7 @@
+.hr {
+    display: block;
+    flex: 1;
+    margin: 0 30px;
+    height: 3px;
+    background: #D4D4D4;
+  }

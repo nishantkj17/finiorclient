@@ -1,0 +1,187 @@
+<mat-progress-bar mode="indeterminate" *ngIf="IsWait"></mat-progress-bar>
+  <h1 id="tableLabel">Investment details</h1>
+  <mat-tab-group>
+    <mat-tab label="Return by Profile">
+      <br />
+      <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Mutual fund return by profile:
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                            <thead>
+                                <tr>
+                                  <th>
+                                    Date
+                                  </th>
+                                  <th>
+                                    Profile
+                                  </th>
+                                  <th>
+                                    Invested amount
+                                  </th>
+                                  <th>
+                                    Current value
+                                  </th>
+                                  <th>
+                                    Return (in %)
+                                  </th>
+                                </tr>
+                              </thead>
+
+                    <tfoot>
+                        <tr>
+                            <th>
+                              Date
+                            </th>
+                            <th>
+                              Profile
+                            </th>
+                            <th>
+                              Invested amount
+                            </th>
+                            <th>
+                              Current value
+                            </th>
+                            <th>
+                              Return (in %)
+                            </th>
+                          </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor="let item of totalInvestment; let id=index">
+                          <td>
+                            {{item.createddate}}
+                          </td>
+                          <td>
+                            {{item.profile}}
+                          </td>
+                          <td>
+                            {{item.investedamount}}
+                          </td>
+                          <td>
+                            {{item.currentvalue}}
+                          </td>
+                          <td>
+                            {{item.returns}}
+                          </td>
+                        </tr>
+                      </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </mat-tab>
+    <mat-tab label="Combined Returns">
+      <br />
+      <div class="col-lg-12">
+        <table id="sum" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>
+                Date
+              </th>
+              <th>
+                Combined Investment
+              </th>
+              <th>
+                Current value
+              </th>
+              <th>
+                Absolute Return (in %)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of combinedInvestment; let id=index">
+              <td>
+                {{item.createddate}}
+              </td>
+              <td>
+                {{item.investedamount}}
+              </td>
+              <td>
+                {{item.currentvalue}}
+              </td>
+              <td>
+                {{item.returns}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+    <mat-tab label="SIP Details">
+        <br />
+        <app-sip-details></app-sip-details>
+    </mat-tab>
+    <mat-tab label="SIP Details by Date">
+      <br />
+      <div class="col-lg-12">
+        <table id="sipDetailsByDate" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>
+                Date
+              </th>
+              <th>
+                Investment
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of sipDetailsByDate; let id=index">
+              <td>
+                {{item.date}}
+              </td>
+              <td>
+                {{item.denomination}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+    <mat-tab label="SIP Details by fund">
+      <br />
+      <div class="col-lg-12">
+        <table id="sipDetailsByFund" class="table table-bordered">
+          <thead>
+            <tr>
+              <th>
+                Sr. No.
+              </th>
+              <th>
+                Fund Name
+              </th>
+              <th>
+                Investment
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of sipDetailsByFund; let id=index">
+              <td>
+                {{id+1}}
+              </td>
+              <td>
+                {{item.fundName}}
+              </td>
+              <td>
+                {{item.denomination}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+    <mat-tab label="Analytics">
+      <br />
+      <analytics></analytics>
+    </mat-tab>
+  </mat-tab-group>
+ 

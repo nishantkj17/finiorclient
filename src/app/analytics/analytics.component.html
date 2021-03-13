@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-lg-6" *ngIf="returnOnInvestment">
+        <h4>Combined investment return (Mutual Fund)</h4>
+        <canvas baseChart width="500" height="400"
+        [datasets]="returnOnInvestment.investmentReturnChart"
+        [labels]="returnOnInvestment.chartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+</canvas>
+    </div>
+    <div class="col-lg-6" *ngIf="returnOnInvestmentIndividualProfile">
+        <h4>Individual investment return (Mutual Fund)</h4>
+        <canvas baseChart width="500" height="400"
+        [datasets]="returnOnInvestmentIndividualProfile.investmentReturnChart"
+        [labels]="returnOnInvestmentIndividualProfile.chartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+</canvas>
+    </div>
+</div>
+<div class="row">
+     <div class="col-lg-6" *ngIf="equityReturn">
+        <h4>Individual investment return (Stocks)</h4>
+        <canvas baseChart width="500" height="400"
+        [datasets]="equityReturn.investmentReturnChart"
+        [labels]="equityReturn.chartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+</canvas>
+    </div> 
+    <div class="col-lg-6" *ngIf="pfSavings">
+        <h4>Provident fund</h4>
+        <canvas baseChart width="500" height="400"
+        [datasets]="pfSavings.investmentReturnChart"
+        [labels]="pfSavings.chartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div> 
+</div>
+
+<!-- <div style="display: block; height:500px; width:500px;" >
+
+  </div> -->
+
+  
