@@ -6,182 +6,76 @@
       <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table mr-1"></i>
-            Mutual fund return by profile:
+            Mutual fund return by profile
         </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-                            <thead>
-                                <tr>
-                                  <th>
-                                    Date
-                                  </th>
-                                  <th>
-                                    Profile
-                                  </th>
-                                  <th>
-                                    Invested amount
-                                  </th>
-                                  <th>
-                                    Current value
-                                  </th>
-                                  <th>
-                                    Return (in %)
-                                  </th>
-                                </tr>
-                              </thead>
-
-                    <tfoot>
-                        <tr>
-                            <th>
-                              Date
-                            </th>
-                            <th>
-                              Profile
-                            </th>
-                            <th>
-                              Invested amount
-                            </th>
-                            <th>
-                              Current value
-                            </th>
-                            <th>
-                              Return (in %)
-                            </th>
-                          </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr *ngFor="let item of totalInvestment; let id=index">
-                          <td>
-                            {{item.createddate}}
-                          </td>
-                          <td>
-                            {{item.profile}}
-                          </td>
-                          <td>
-                            {{item.investedamount}}
-                          </td>
-                          <td>
-                            {{item.currentvalue}}
-                          </td>
-                          <td>
-                            {{item.returns}}
-                          </td>
-                        </tr>
-                      </tbody>
-                </table>
-            </div>
+            <app-mf-individual-investment-report></app-mf-individual-investment-report>
         </div>
     </div>
 
     </mat-tab>
     <mat-tab label="Combined Returns">
       <br />
-      <div class="col-lg-12">
-        <table id="sum" class="table table-bordered">
-          <thead>
-            <tr>
-              <th>
-                Date
-              </th>
-              <th>
-                Combined Investment
-              </th>
-              <th>
-                Current value
-              </th>
-              <th>
-                Absolute Return (in %)
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of combinedInvestment; let id=index">
-              <td>
-                {{item.createddate}}
-              </td>
-              <td>
-                {{item.investedamount}}
-              </td>
-              <td>
-                {{item.currentvalue}}
-              </td>
-              <td>
-                {{item.returns}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Combined mututal fund return
+        </div>
+        <div class="card-body">
+          <app-mf-combined-investment-report></app-mf-combined-investment-report>
+        </div>
+    </div>
     </mat-tab>
     <mat-tab label="SIP Details">
         <br />
-        <app-sip-details></app-sip-details>
+        <div class="card mb-4">
+          <div class="card-header">
+              <i class="fas fa-table mr-1"></i>
+              SIP Details
+          </div>
+          <div class="card-body">
+            <app-sip-details></app-sip-details>
+          </div>
+      </div>
     </mat-tab>
     <mat-tab label="SIP Details by Date">
       <br />
-      <div class="col-lg-12">
-        <table id="sipDetailsByDate" class="table table-bordered">
-          <thead>
-            <tr>
-              <th>
-                Date
-              </th>
-              <th>
-                Investment
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of sipDetailsByDate; let id=index">
-              <td>
-                {{item.date}}
-              </td>
-              <td>
-                {{item.denomination}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            SIP Details by Date
+        </div>
+        <div class="card-body">
+          <app-sip-details-date></app-sip-details-date> 
+        </div>
+    </div>
+     
     </mat-tab>
     <mat-tab label="SIP Details by fund">
       <br />
-      <div class="col-lg-12">
-        <table id="sipDetailsByFund" class="table table-bordered">
-          <thead>
-            <tr>
-              <th>
-                Sr. No.
-              </th>
-              <th>
-                Fund Name
-              </th>
-              <th>
-                Investment
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of sipDetailsByFund; let id=index">
-              <td>
-                {{id+1}}
-              </td>
-              <td>
-                {{item.fundName}}
-              </td>
-              <td>
-                {{item.denomination}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            SIP by Mutual Fund name
+        </div>
+        <div class="card-body">
+          <app-sip-details-fund></app-sip-details-fund>
+        </div>
+    </div>
+     
     </mat-tab>
     <mat-tab label="Analytics">
       <br />
-      <analytics></analytics>
+      <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            SIP by Mutual Fund name
+        </div>
+        <div class="card-body">
+          <analytics></analytics>
+        </div>
+    </div>
+      
     </mat-tab>
   </mat-tab-group>
  

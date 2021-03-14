@@ -23,7 +23,7 @@ export class DebtEntryFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.account = ["SBI Home Loan", "HDFC PL", "Bajaj PL", "LIC Loan", "Credit Card","Umesh", "Sushil"];
+    this.account = ["SBI Home Loan", "Loan 1", "Loan 2", "Loan 3", "Loan 4","Loan 5", "Loan n"];
     this.IsWait = false;
   }
   saveDebtEntry(){

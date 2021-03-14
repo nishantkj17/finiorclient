@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lamng="eng" dir="ltr">
+<body class="">
+    <form #applicationForm="ngForm" *ngIf="totalInvestment">
+        <div class="mat-elevation-z8">
+          <table matSort mat-table [dataSource]="dataSource">
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="createddate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.createddate}} </td>
+            </ng-container>
+        
+            <!-- Weight Column -->
+            <ng-container matColumnDef="profile">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Profile </th>
+              <td mat-cell *matCellDef="let element"> {{element.profile}} </td>
+            </ng-container>
+        
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="investedamount">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Investment </th>
+              <td mat-cell *matCellDef="let element"> {{element.investedamount}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="currentvalue">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Current Value </th>
+              <td mat-cell *matCellDef="let element"> {{element.currentvalue}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="returns">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Return (in %) </th>
+                <td mat-cell *matCellDef="let element"> {{element.returns}} </td>
+              </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+      </form>
+    </body>
+    </html>
+ <mat-progress-bar mode="indeterminate" *ngIf="IsWait"></mat-progress-bar>

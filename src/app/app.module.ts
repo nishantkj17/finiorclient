@@ -56,6 +56,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { MfIndividualInvestmentReportComponent } from './mf-individual-investment-report/mf-individual-investment-report.component';
+import { MfCombinedInvestmentReportComponent } from './mf-combined-investment-report/mf-combined-investment-report.component';
+import { SipDetailsDateComponent } from './sip-details-date/sip-details-date.component';
+import { SipDetailsFundComponent } from './sip-details-fund/sip-details-fund.component';
 
 
 const googleLoginOptions = {
@@ -85,7 +89,11 @@ export function provideConfig() {
     InvestmentSavingsDetailsComponent,
     LandingDashboardComponent,
     SipDetailsComponent,
-    DebtEntryFormComponent
+    DebtEntryFormComponent,
+    MfIndividualInvestmentReportComponent,
+    MfCombinedInvestmentReportComponent,
+    SipDetailsDateComponent,
+    SipDetailsFundComponent
   ],
   imports: [
     BrowserModule,
