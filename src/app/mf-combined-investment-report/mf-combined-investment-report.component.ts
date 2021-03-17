@@ -14,17 +14,17 @@ export class MfCombinedInvestmentReportComponent implements OnInit {
 
   combinedInvestment: InvestmentReturnDetails[];
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
-  displayedColumns: string[] = ['createddate', 'investedamount',  'currentvalue', 'returns'];
-  dataSource = new MatTableDataSource<InvestmentReturnDetails>();  
+  displayedColumns: string[] = ['createddate', 'investedamount', 'currentvalue', 'returns'];
+  dataSource = new MatTableDataSource<InvestmentReturnDetails>();
   private paginator: MatPaginator;
   private sort: MatSort;
   IsWait: boolean;
   constructor(private financialService: financialsService, private router: Router) {
-   
+
   }
 
   ngOnInit(): void {
-    this.IsWait=true;
+    this.IsWait = true;
     this.populateCombinedInvestmentReturnDetails();
     this.IsWait = false;
   }
@@ -52,7 +52,7 @@ export class MfCombinedInvestmentReportComponent implements OnInit {
       (data: any) => {
         if (data.length > 0) {
           this.combinedInvestment = data as InvestmentReturnDetails[];
-          this.combinedInvestment=this.combinedInvestment.reverse();
+          this.combinedInvestment = this.combinedInvestment.reverse();
           this.dataSource = new MatTableDataSource<InvestmentReturnDetails>(this.combinedInvestment);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;

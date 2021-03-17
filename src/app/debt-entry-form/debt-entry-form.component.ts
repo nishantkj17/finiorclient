@@ -15,7 +15,7 @@ export class DebtEntryFormComponent implements OnInit {
   IsWait: boolean;
   debtRequest: Debt;
 
-  constructor( private financialService: financialsService, private alertservice: AlertDialogClass) {
+  constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
     this.debtRequest = new Debt();
   }
 
@@ -23,15 +23,14 @@ export class DebtEntryFormComponent implements OnInit {
     this.IsWait = false;
     this.getDebtAccountName();
   }
-  saveDebtEntry(){
+  saveDebtEntry() {
     this.IsWait = true;
     this.financialService.saveDebtEntry(this.debtRequest.accountname, this.debtRequest.currentbalance).subscribe(
       (data: any) => {
         this.alertservice.openAlertDialog('Investment created successfully.');
         this.IsWait = false;
       },
-      (error)=>
-      {
+      (error) => {
         console.log(error);
         this.alertservice.openAlertDialog('Errored while adding investment!');
         this.IsWait = false;
@@ -39,32 +38,27 @@ export class DebtEntryFormComponent implements OnInit {
     );
   }
 
-  getDebtAccountName(){
+  getDebtAccountName() {
     this.IsWait = true;
     this.financialService.getDebtAccountName().subscribe(
       (data: any) => {
-        this.account=data as string[];
+        this.account = data as string[];
       },
-      (error)=>
-      {
+      (error) => {
         this.alertservice.openAlertDialog(error);
       }
     );
   }
 
-  refreshDebtSavingChart()
-  {
+  refreshDebtSavingChart() {
     this.IsWait = true;
     this.financialService.refreshDebtInvestmentForChart().subscribe(
       (data: any) => {
         this.IsWait = false;
-        if(data==1)
-        {this.alertservice.openAlertDialog("Chart data updated successfully!");}
-        else
-        {this.alertservice.openAlertDialog("Chart data already updated for the day!");}
+        if (data == 1) { this.alertservice.openAlertDialog("Chart data updated successfully!"); }
+        else { this.alertservice.openAlertDialog("Chart data already updated for the day!"); }
       },
-      (error)=>
-      {
+      (error) => {
         this.alertservice.openAlertDialog(error);
       }
     );

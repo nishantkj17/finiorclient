@@ -8,11 +8,11 @@ import { financialsService } from '../service/financialsService';
   styleUrls: ['./investment-savings-details.component.css']
 })
 export class InvestmentSavingsDetailsComponent implements OnInit {
-   _router: string;
-  constructor(private financialService: financialsService, private router: Router) {  
+  _router: string;
+  constructor(private financialService: financialsService, private router: Router) {
 
   }
-  
+
   ngOnInit(): void {
 
   }

@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 
 <html lamng="eng" dir="ltr">
-  <body>
-    <div class="container-fluid">  
-  <div class="card mb-4">
-    <div class="card-header">
-      <div class="col col-lg-12">
-        <select id="actions" name="actions" [(ngModel)]=selectedAction class="form-control cust-sel">
-          <option value="undefined" selected disabled>Select desired action</option>
-          <option *ngFor="let name of actions" [ngValue]="name">{{name}}</option>
-        </select>
+
+<body>
+  <div class="container-fluid">
+    <div class="card mb-4">
+      <div class="card-header">
+        <div class="col col-lg-12">
+          <select id="actions" name="actions" [(ngModel)]=selectedAction class="form-control cust-sel">
+            <option value="undefined" selected disabled>Select desired action</option>
+            <option *ngFor="let name of actions" [ngValue]="name">{{name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-body">
+        <app-sip-create-form *ngIf="selectedAction=='Add SIP Details'"></app-sip-create-form>
+        <app-mutual-fund-return-create-form *ngIf="selectedAction=='Save mutual fund Return'">
+        </app-mutual-fund-return-create-form>
+        <app-provident-fund-create-form *ngIf="selectedAction=='Save provident fund'"></app-provident-fund-create-form>
+        <app-equity-return-create-form *ngIf="selectedAction=='Save Equity'"></app-equity-return-create-form>
+        <app-debt-entry-form *ngIf="selectedAction=='Add Debt'"></app-debt-entry-form>
       </div>
     </div>
-    <div class="card-body">
-      <app-sip-create-form *ngIf="selectedAction=='Add SIP Details'"></app-sip-create-form>
-      <br/>
-      <app-mutual-fund-return-create-form *ngIf="selectedAction=='Save mutual fund Return'"></app-mutual-fund-return-create-form>
-      <br/>
-      <app-provident-fund-create-form *ngIf="selectedAction=='Save provident fund'"></app-provident-fund-create-form>
-      <br/>
-      <app-equity-return-create-form *ngIf="selectedAction=='Save Equity'"></app-equity-return-create-form>
-      <br/>
-      <app-debt-entry-form *ngIf="selectedAction=='Add Debt'"></app-debt-entry-form>
-    </div>
-</div>
   </div>
 </body>
+
 </html>
 <mat-progress-bar mode="indeterminate" *ngIf="IsWait"></mat-progress-bar>

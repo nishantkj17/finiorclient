@@ -15,12 +15,12 @@ export class SipDetailsFundComponent implements OnInit {
   sipDetailsByFund: InvestmentDetails[];
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
   displayedColumns: string[] = ['fundName', 'denomination'];
-  dataSource = new MatTableDataSource<InvestmentDetails>();  
+  dataSource = new MatTableDataSource<InvestmentDetails>();
   private paginator: MatPaginator;
   private sort: MatSort;
   IsWait: boolean;
   constructor(private financialService: financialsService, private router: Router) {
-   
+
   }
 
   ngOnInit(): void {
@@ -48,11 +48,11 @@ export class SipDetailsFundComponent implements OnInit {
     this.financialService.getSipDetailsByFund().subscribe(
       (data: any) => {
         if (data.length > 0) {
-         this.sipDetailsByFund = data as InvestmentDetails[];
-         this.dataSource = new MatTableDataSource<InvestmentDetails>(this.sipDetailsByFund);
-         this.dataSource.paginator = this.paginator;
-         this.dataSource.sort = this.sort;
-        //console.log(this.sipDetailsByFund);
+          this.sipDetailsByFund = data as InvestmentDetails[];
+          this.dataSource = new MatTableDataSource<InvestmentDetails>(this.sipDetailsByFund);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+          //console.log(this.sipDetailsByFund);
         }
       },
       (error) => {

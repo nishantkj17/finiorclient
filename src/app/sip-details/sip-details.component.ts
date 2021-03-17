@@ -6,8 +6,8 @@ import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { ConfirmationDialog } from '../confirmation-dialog/confirmation-dialog.component';
 import { InvestmentDetails } from '../model/financialdiarymodel';
 import { financialsService } from '../service/financialsService';
-import { MatPaginator} from '@angular/material/paginator';
-import { MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
 @Component({
@@ -24,26 +24,26 @@ export class SipDetailsComponent implements OnInit {
   //@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   //@ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['fundName', 'date', 'denomination', 'profile', 'editdelete'];
-  dataSource = new MatTableDataSource<InvestmentDetails>();  
+  dataSource = new MatTableDataSource<InvestmentDetails>();
   private paginator: MatPaginator;
   private sort: MatSort;
 
   constructor(private financialService: financialsService, private router: Router, private dialog: MatDialog,
     private snackBar: MatSnackBar) {
     this.investmentDetailsSearchRequest = new InvestmentDetails();
-   }
+  }
 
   ngOnInit(): void {
     this.profile = ["Nishant Jha", "Ranjana Jha"];
     this.dates = ["1", "2", "3", "4", "5", "6",
-    "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
-    "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
-    "27", "28"
-  ];
-  
+      "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
+      "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
+      "27", "28"
+    ];
+
   }
   ngAfterViewInit() {
-    
+
   }
 
 
@@ -70,7 +70,7 @@ export class SipDetailsComponent implements OnInit {
     this.financialService.getFilteredInvestmentDetails(this.investmentDetailsSearchRequest.date, this.investmentDetailsSearchRequest.profile).subscribe(
       (data: any) => {
         if (data.length > 0) {
-          this.investmentDetails = data as InvestmentDetails[];   
+          this.investmentDetails = data as InvestmentDetails[];
           this.dataSource = new MatTableDataSource<InvestmentDetails>(this.investmentDetails);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
@@ -95,8 +95,8 @@ export class SipDetailsComponent implements OnInit {
   }
 
   openDialog(item: InvestmentDetails) {
-    const dialogRef = this.dialog.open(ConfirmationDialog,{
-      data:{
+    const dialogRef = this.dialog.open(ConfirmationDialog, {
+      data: {
         message: 'Are you sure want to delete?',
         buttonText: {
           ok: 'Yes',
@@ -122,9 +122,9 @@ export class SipDetailsComponent implements OnInit {
       }
     });
   }
-  openAlertDialog(alertMmessage:string) {
-    const dialogRef = this.dialog.open(AlertDialogComponent,{
-      data:{
+  openAlertDialog(alertMmessage: string) {
+    const dialogRef = this.dialog.open(AlertDialogComponent, {
+      data: {
         message: alertMmessage,
         buttonText: {
           cancel: 'Ok'

@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { financialsService } from '../service/financialsService';
 import { InvestmentReturnDetails } from '../model/financialdiarymodel';
 import { AlertDialogClass } from '../common/alert-dialog-class';
@@ -12,17 +12,16 @@ export class EquityReturnCreateFormComponent implements OnInit {
   public dates: any[];
   investmentReturnRequest: InvestmentReturnDetails;
   IsWait: boolean;
-    profile: any;
-    constructor( private financialService: financialsService,  private alertservice: AlertDialogClass) {
-      this.investmentReturnRequest = new InvestmentReturnDetails();
-    }
+  profile: any;
+  constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
+    this.investmentReturnRequest = new InvestmentReturnDetails();
+  }
 
   ngOnInit(): void {
   }
-  saveEquityInvestment()
-  {
+  saveEquityInvestment() {
     this.IsWait = true;
-    this.financialService.saveEquityInvestment( this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue).subscribe(
+    this.financialService.saveEquityInvestment(this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue).subscribe(
       (data: any) => {
         this.alertservice.openAlertDialog('Equity details saved successfully.');
         this.IsWait = false;
@@ -31,7 +30,7 @@ export class EquityReturnCreateFormComponent implements OnInit {
         console.log(error);
         this.alertservice.openAlertDialog('Errored while saving equity details!');
         this.IsWait = false;
-      } 
+      }
     );
   }
 }

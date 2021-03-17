@@ -12,11 +12,11 @@ export class NavMenuComponent {
   signinForm: FormGroup;
   user: SocialUser;
   loggedIn: boolean;
-  hideLogIn:boolean=false;
-  constructor(private fb: FormBuilder, private authService: SocialAuthService, private router:Router) { }
+  hideLogIn: boolean = false;
+  constructor(private fb: FormBuilder, private authService: SocialAuthService, private router: Router) { }
   isExpanded = false;
-  @Output() isLoggedIn: EventEmitter<boolean> =   new EventEmitter();
-  ngOnInit() { 
+  @Output() isLoggedIn: EventEmitter<boolean> = new EventEmitter();
+  ngOnInit() {
 
     this.signinForm = this.fb.group({
       email: ['', Validators.required],
@@ -36,12 +36,12 @@ export class NavMenuComponent {
     this.router.navigate(['dashboard'], {
 
     });
-    this.hideLogIn=true;
-    }
-  
+    this.hideLogIn = true;
+  }
+
   signOut(): void {
-    this.authService.signOut(); 
-    this.hideLogIn=false;
+    this.authService.signOut();
+    this.hideLogIn = false;
   }
   collapse() {
     this.isExpanded = false;

@@ -1,81 +1,79 @@
 <mat-progress-bar mode="indeterminate" *ngIf="IsWait"></mat-progress-bar>
-  <h1 id="tableLabel">Investment details</h1>
-  <mat-tab-group>
-    <mat-tab label="Return by Profile">
-      <br />
-      <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table mr-1"></i>
-            Mutual fund return by profile
-        </div>
-        <div class="card-body">
-            <app-mf-individual-investment-report></app-mf-individual-investment-report>
-        </div>
+<h1 id="tableLabel">Investment details</h1>
+<mat-tab-group>
+  <mat-tab label="Return by Profile">
+    <br />
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Mutual fund return by profile
+      </div>
+      <div class="card-body">
+        <app-mf-individual-investment-report></app-mf-individual-investment-report>
+      </div>
     </div>
 
-    </mat-tab>
-    <mat-tab label="Combined Returns">
-      <br />
-      <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table mr-1"></i>
-            Combined mututal fund return
-        </div>
-        <div class="card-body">
-          <app-mf-combined-investment-report></app-mf-combined-investment-report>
-        </div>
-    </div>
-    </mat-tab>
-    <mat-tab label="SIP Details">
-        <br />
-        <div class="card mb-4">
-          <div class="card-header">
-              <i class="fas fa-table mr-1"></i>
-              SIP Details
-          </div>
-          <div class="card-body">
-            <app-sip-details></app-sip-details>
-          </div>
+  </mat-tab>
+  <mat-tab label="Combined Returns">
+    <br />
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Combined mututal fund return
       </div>
-    </mat-tab>
-    <mat-tab label="SIP Details by Date">
-      <br />
-      <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table mr-1"></i>
-            SIP Details by Date
-        </div>
-        <div class="card-body">
-          <app-sip-details-date></app-sip-details-date> 
-        </div>
+      <div class="card-body">
+        <app-mf-combined-investment-report></app-mf-combined-investment-report>
+      </div>
     </div>
-     
-    </mat-tab>
-    <mat-tab label="SIP Details by fund">
-      <br />
-      <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table mr-1"></i>
-            SIP by Mutual Fund name
-        </div>
-        <div class="card-body">
-          <app-sip-details-fund></app-sip-details-fund>
-        </div>
+  </mat-tab>
+  <mat-tab label="SIP Details">
+    <br />
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        SIP Details
+      </div>
+      <div class="card-body">
+        <app-sip-details></app-sip-details>
+      </div>
     </div>
-     
-    </mat-tab>
-    <mat-tab label="Analytics">
-      <br />
-      <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table mr-1"></i>
-            SIP by Mutual Fund name
-        </div>
-        <div class="card-body">
-          <analytics></analytics>
-        </div>
+  </mat-tab>
+  <mat-tab label="SIP Details by Date">
+    <br />
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        SIP Details by Date
+      </div>
+      <div class="card-body">
+        <app-sip-details-date></app-sip-details-date>
+      </div>
     </div>
-      
-    </mat-tab>
-  </mat-tab-group>
- 
+
+  </mat-tab>
+  <mat-tab label="SIP Details by fund">
+    <br />
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        SIP by Mutual Fund name
+      </div>
+      <div class="card-body">
+        <app-sip-details-fund></app-sip-details-fund>
+      </div>
+    </div>
+
+  </mat-tab>
+  <mat-tab label="Analytics">
+    <br />
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        SIP by Mutual Fund name
+      </div>
+      <div class="card-body">
+        <analytics></analytics>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

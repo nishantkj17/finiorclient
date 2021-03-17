@@ -9,9 +9,9 @@ import { financialsService } from '../service/financialsService';
 })
 export class SipEditViewComponent {
   public currentCount = 0;
-   public profile: string[];
-   public dates: string[];
-   IsWait: boolean;
+  public profile: string[];
+  public dates: string[];
+  IsWait: boolean;
   investmentDetailsRequest: InvestmentDetails;
   investmentDetails: InvestmentDetails;
 
@@ -31,8 +31,8 @@ export class SipEditViewComponent {
     this.IsWait = true;
     this.financialService.updateSipDetails(this.investmentDetails).subscribe(
       (data: any) => {
-          this.alertservice.openAlertDialog('SIP details updated successfully');
-          this.IsWait = false;
+        this.alertservice.openAlertDialog('SIP details updated successfully');
+        this.IsWait = false;
       },
       (error) => {
         this.alertservice.openAlertDialog(error);

@@ -10,18 +10,17 @@ import { financialsService } from '../service/financialsService';
 })
 export class DebtsDashboardComponent implements OnInit {
   debtDasbhboardData: Debt[];
-  constructor(private financialService: financialsService, private router: Router) {  
+  constructor(private financialService: financialsService, private router: Router) {
 
   }
 
   ngOnInit(): void {
-   this.getDebtDashboardData(); 
+    this.getDebtDashboardData();
   }
-  getDebtDashboardData()
-  {
+  getDebtDashboardData() {
     this.financialService.getDebtsDashboardData().subscribe(
       (data: any) => {
-        this.debtDasbhboardData = data as Debt[]; 
+        this.debtDasbhboardData = data as Debt[];
         console.log(this.debtDasbhboardData);
       },
       (error) => {

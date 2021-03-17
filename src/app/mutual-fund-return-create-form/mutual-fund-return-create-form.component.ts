@@ -11,15 +11,15 @@ import { AlertDialogClass } from '../common/alert-dialog-class';
 export class MutualFundReturnCreateFormComponent implements OnInit {
   investmentReturnRequest: InvestmentReturnDetails;
   IsWait: boolean;
-    profile: any;
-    ngOnInit(): void {
-       this.profile = ["Nishant Jha", "Ranjana Jha"];
-       this.IsWait = false;
-   }
-   constructor( private financialService: financialsService, private alertservice: AlertDialogClass) {
-     this.investmentReturnRequest = new InvestmentReturnDetails();
-   }
-   saveReturns() {
+  profile: any;
+  ngOnInit(): void {
+    this.profile = ["Nishant Jha", "Ranjana Jha"];
+    this.IsWait = false;
+  }
+  constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
+    this.investmentReturnRequest = new InvestmentReturnDetails();
+  }
+  saveReturns() {
     this.IsWait = true;
     this.financialService.saveReturns(this.investmentReturnRequest.profile, this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue).subscribe(
       (data: any) => {

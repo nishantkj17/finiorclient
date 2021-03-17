@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {  MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {  MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-alert-dialog',
@@ -18,7 +18,7 @@ export class AlertDialogComponent {
         this.cancelButtonText = data.buttonText.cancel || this.cancelButtonText;
       }
     }
-    this.dialogRef.updateSize('300vw','300vw')
+    this.dialogRef.updateSize('300vw', '300vw')
   }
 
   onConfirmClick(): void {

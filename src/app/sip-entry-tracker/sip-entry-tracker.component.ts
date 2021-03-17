@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sip-entry-tracker',
@@ -9,11 +9,11 @@ export class SipEntryTrackerComponent implements OnInit {
   actions: any;
   selectedAction: string;
   ngOnInit(): void {
-      this.actions = ["Add SIP Details", "Save mutual fund Return", "Save provident fund", "Save Equity", "Add Debt"];
+    this.actions = ["Add SIP Details", "Save mutual fund Return", "Save provident fund", "Save Equity", "Add Debt"];
 
   }
-  constructor( ) {
+  constructor() {
 
   }
-  
+
 }

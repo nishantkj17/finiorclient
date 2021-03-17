@@ -15,17 +15,17 @@ export class SipCreateFormComponent implements OnInit {
   investmentReturnRequest: InvestmentReturnDetails;
   investmentDetails: InvestmentDetails[];
   IsWait: boolean;
-    profile: any;
+  profile: any;
   ngOnInit(): void {
-     this.dates = ["1", "2", "3", "4", "5", "6",
+    this.dates = ["1", "2", "3", "4", "5", "6",
       "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
       "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
       "27", "28"
     ];
-      this.profile = ["Nishant Jha", "Ranjana Jha"];
-      this.IsWait = false;
+    this.profile = ["Nishant Jha", "Ranjana Jha"];
+    this.IsWait = false;
   }
-  constructor( private financialService: financialsService, private alertservice: AlertDialogClass) {
+  constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
     this.investmentDetailsRequest = new InvestmentDetails();
     this.investmentReturnRequest = new InvestmentReturnDetails();
   }
@@ -36,8 +36,7 @@ export class SipCreateFormComponent implements OnInit {
         this.alertservice.openAlertDialog('SIP added successfully.');
         this.IsWait = false;
       },
-      (error)=>
-      {
+      (error) => {
         console.log(error);
         this.alertservice.openAlertDialog('Errored while adding SIP!');
         this.IsWait = false;

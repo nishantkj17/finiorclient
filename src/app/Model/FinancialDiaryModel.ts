@@ -16,27 +16,27 @@ export class InvestmentReturnDetails {
   type: string;
 }
 
-export class InvestmentReturnDataForChart {  
-  data: Array<number>;  
-  label: string;  
-  pointRadius: number; 
-}  
+export class InvestmentReturnDataForChart {
+  data: Array<number>;
+  label: string;
+  pointRadius: number;
+}
 
-export class Returns {  
-  investmentReturnChart: InvestmentReturnDataForChart[];  
-  chartLabels: string[]; 
-} 
+export class Returns {
+  investmentReturnChart: InvestmentReturnDataForChart[];
+  chartLabels: string[];
+}
 
-export class DashboardAssetDetails{
+export class DashboardAssetDetails {
   cardclass: string;
   investmenttype: number;
   currentvalue: number;
   equity: number;
 }
 
-export class Debt{
+export class Debt {
   accountname: string;
   currentbalance: number;
   createddate: number;
-  id:string;
+  id: string;
 }

@@ -15,12 +15,12 @@ export class MfIndividualInvestmentReportComponent implements OnInit {
   totalInvestment: InvestmentReturnDetails[];
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
   displayedColumns: string[] = ['createddate', 'profile', 'investedamount', 'currentvalue', 'returns'];
-  dataSource = new MatTableDataSource<InvestmentReturnDetails>();  
+  dataSource = new MatTableDataSource<InvestmentReturnDetails>();
   private paginator: MatPaginator;
   private sort: MatSort;
   IsWait: boolean;
   constructor(private financialService: financialsService, private router: Router) {
-   
+
   }
 
   ngOnInit(): void {
@@ -50,7 +50,7 @@ export class MfIndividualInvestmentReportComponent implements OnInit {
       (data: any) => {
         if (data.length > 0) {
           this.totalInvestment = data as InvestmentReturnDetails[];
-          this.totalInvestment=this.totalInvestment.reverse();
+          this.totalInvestment = this.totalInvestment.reverse();
           this.dataSource = new MatTableDataSource<InvestmentReturnDetails>(this.totalInvestment);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;

@@ -10,15 +10,14 @@ import { InvestmentDetails, Returns, Debt, DashboardAssetDetails } from '../mode
 })
 export class financialsService {
 
- 
+
   baseURL: string;
- 
+
   constructor(private http: HttpClient) {
     this.baseURL = 'https://localhost:5001/';
   }
-  
-  getInvestmentDetails() : Observable<any>
-  {
+
+  getInvestmentDetails(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -58,7 +57,7 @@ export class financialsService {
   }
 
 
-  getFilteredInvestmentDetails( date: string, profile: string): Observable<any> {
+  getFilteredInvestmentDetails(date: string, profile: string): Observable<any> {
     const params = new HttpParams()
       .set('date', date)
       .set('profile', profile);
@@ -78,7 +77,7 @@ export class financialsService {
     return this.http.post<any>(this.baseURL + 'FinancialDiary/addinvestment', formData)
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
-    );
+      );
   }
 
   saveReturns(profile: string, investedamount: number, currentvalue: number): Observable<any> {
@@ -118,7 +117,7 @@ export class financialsService {
       );
   }
 
-  updateSipDetails(item: InvestmentDetails ): Observable<any> {
+  updateSipDetails(item: InvestmentDetails): Observable<any> {
     var formData: any = new FormData();
     formData.append("fundName", item.fundName);
     formData.append("date", item.date);
@@ -130,18 +129,17 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
-  public deleteSipDetails(id:string) : Observable<any>{
+  public deleteSipDetails(id: string): Observable<any> {
     const params = new HttpParams()
-    .set('id', id);
+      .set('id', id);
 
-  return this.http.get<any>(this.baseURL + 'FinancialDiary/deletesipdetails', { params })
-    .pipe(
-      //tap(data => console.log(JSON.stringify(data))),
-    );
+    return this.http.get<any>(this.baseURL + 'FinancialDiary/deletesipdetails', { params })
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
   }
 
-  getCombinedInvestmentReturnDataForChart() : Observable<any>
-  {
+  getCombinedInvestmentReturnDataForChart(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -154,7 +152,7 @@ export class financialsService {
       );
   }
 
-  getIndividualInvestmentReturnDataForChart() : Observable<any>{
+  getIndividualInvestmentReturnDataForChart(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -167,7 +165,7 @@ export class financialsService {
       );
   }
 
-  getEquityInvestmentReturnDataForChart(): Observable<any>{
+  getEquityInvestmentReturnDataForChart(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -180,8 +178,7 @@ export class financialsService {
       );
   }
 
-  getPFReturnForChart(): Observable<any>
-  {
+  getPFReturnForChart(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -193,8 +190,7 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
-  getAssetsDashboardData(): Observable<any>
-  {
+  getAssetsDashboardData(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -206,8 +202,7 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
-  getDebtsDashboardData(): Observable<any>
-  {
+  getDebtsDashboardData(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -219,8 +214,7 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
-  refreshDebtInvestmentForChart(): Observable<any>
-  {
+  refreshDebtInvestmentForChart(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -232,7 +226,7 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
-  saveEquityInvestment(investedamount: number, currentvalue: number): Observable<any>{
+  saveEquityInvestment(investedamount: number, currentvalue: number): Observable<any> {
     var formData: any = new FormData();
     formData.append("investedamount", investedamount);
     formData.append("currentvalue", currentvalue);
@@ -242,7 +236,7 @@ export class financialsService {
       );
   }
 
-  saveProvidentFundDetails(investedamount: number, currentvalue: number, type:string, profile:string): Observable<any>{
+  saveProvidentFundDetails(investedamount: number, currentvalue: number, type: string, profile: string): Observable<any> {
     var formData: any = new FormData();
     formData.append("investedamount", investedamount);
     formData.append("currentvalue", currentvalue);
@@ -262,11 +256,10 @@ export class financialsService {
     return this.http.post<any>(this.baseURL + 'FinancialDiary/adddebt', formData)
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
-    );
+      );
   }
 
-  getDebtAccountName(): Observable<any>
-  {
+  getDebtAccountName(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders(
         {

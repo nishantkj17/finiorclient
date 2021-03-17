@@ -13,17 +13,16 @@ export class ProvidentFundCreateFormComponent implements OnInit {
   investmentReturnRequest: InvestmentReturnDetails;
   IsWait: boolean;
   profile: any;
-  constructor( private financialService: financialsService, private alertservice: AlertDialogClass) {
+  constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
     this.investmentReturnRequest = new InvestmentReturnDetails();
   }
 
   ngOnInit(): void {
     this.profile = ["Nishant Jha", "Ranjana Jha"];
   }
-  saveProvidentFund()
-  {
+  saveProvidentFund() {
     this.IsWait = true;
-    this.financialService.saveProvidentFundDetails( this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue, this.investmentReturnRequest.type, this.investmentReturnRequest.profile).subscribe(
+    this.financialService.saveProvidentFundDetails(this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue, this.investmentReturnRequest.type, this.investmentReturnRequest.profile).subscribe(
       (data: any) => {
         this.alertservice.openAlertDialog('Provident fund details saved successfully.');
         this.IsWait = false;
@@ -32,7 +31,7 @@ export class ProvidentFundCreateFormComponent implements OnInit {
         console.log(error);
         this.alertservice.openAlertDialog('Errored while saving Provident fund details!');
         this.IsWait = false;
-      } 
+      }
     );
   }
 }

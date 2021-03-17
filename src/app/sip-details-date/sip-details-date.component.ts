@@ -15,18 +15,18 @@ export class SipDetailsDateComponent implements OnInit {
   sipDetailsByDate: InvestmentDetails[];
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
   displayedColumns: string[] = ['date', 'denomination'];
-  dataSource = new MatTableDataSource<InvestmentDetails>();  
+  dataSource = new MatTableDataSource<InvestmentDetails>();
   private paginator: MatPaginator;
   private sort: MatSort;
   IsWait: boolean;
   constructor(private financialService: financialsService, private router: Router) {
-   
+
   }
 
   ngOnInit(): void {
-    this.IsWait=true;
+    this.IsWait = true;
     this.populateSipDetailsByDate();
-    this.IsWait=false;
+    this.IsWait = false;
   }
   @ViewChild(MatSort) set matSort(ms: MatSort) {
     this.sort = ms;
