@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { financialsService } from '../service/financialsService';
 import { InvestmentDetails, InvestmentReturnDetails } from '../model/financialdiarymodel';
 import { AlertDialogClass } from '../common/alert-dialog-class';

@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router, RouterOutlet } from '@angular/router';
-import { InvestmentDetails, InvestmentReturnDetails } from '../model/financialdiarymodel';
+import { InvestmentDetails } from '../model/financialdiarymodel';
 import { financialsService } from '../service/financialsService';
 
 @Component({

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertDialogClass } from '../common/alert-dialog-class';
 import { Debt } from '../model/financialdiarymodel';
 import { financialsService } from '../service/financialsService';

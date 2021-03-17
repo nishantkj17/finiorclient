@@ -3,7 +3,6 @@ import { financialsService } from '../service/financialsService';
 import { InvestmentReturnDetails } from '../model/financialdiarymodel';
 import { AlertDialogClass } from '../common/alert-dialog-class';
 
-
 @Component({
   selector: 'app-provident-fund-create-form',
   templateUrl: './provident-fund-create-form.component.html',

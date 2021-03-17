@@ -1,10 +1,8 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
-import { InvestmentDetails, InvestmentReturnDetails, Returns, InvestmentReturnDataForChart } from '../model/financialdiarymodel';
+import { Component } from '@angular/core';
+import { ChartOptions, ChartType } from 'chart.js';
+import { Color } from 'ng2-charts';
+import { Returns } from '../model/financialdiarymodel';
 import { financialsService } from '../service/financialsService';
-
 
 @Component({
   selector: 'analytics',
