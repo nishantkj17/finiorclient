@@ -16,7 +16,6 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import {ConfirmationDialog} from './confirmation-dialog/confirmation-dialog.component';
 import {AlertDialogComponent} from './alert-dialog/alert-dialog.component';
 import { InvestmentSavingsDetailsComponent } from './investment-savings-details/investment-savings-details.component';
-import { LandingDashboardComponent } from './landing-dashboard/landing-dashboard.component';
 import { SipDetailsComponent } from './sip-details/sip-details.component';
 import { DebtEntryFormComponent } from './debt-entry-form/debt-entry-form.component';
 import {AlertDialogClass} from '../app/common/alert-dialog-class';
@@ -94,7 +93,6 @@ export function provideConfig() {
     ConfirmationDialog,
     AlertDialogComponent,
     InvestmentSavingsDetailsComponent,
-    LandingDashboardComponent,
     SipDetailsComponent,
     DebtEntryFormComponent,
     MfIndividualInvestmentReportComponent,
