@@ -51,13 +51,28 @@ export class DebtEntryFormComponent implements OnInit {
       },
       (error)=>
       {
-        console.log(error);
+        this.openAlertDialog(error);
       }
     );
   }
 
   refreshDebtSavingChart()
-  {}
+  {
+    this.IsWait = true;
+    this.financialService.refreshDebtInvestmentForChart().subscribe(
+      (data: any) => {
+        this.IsWait = false;
+        if(data==1)
+        {this.openAlertDialog("Chart data updated successfully!");}
+        else
+        {this.openAlertDialog("Chart data already refrehsed for the day!");}
+      },
+      (error)=>
+      {
+        this.openAlertDialog(error);
+      }
+    );
+  }
   openAlertDialog(alertMmessage:string) {
     const dialogRef = this.dialog.open(AlertDialogComponent,{
       data:{

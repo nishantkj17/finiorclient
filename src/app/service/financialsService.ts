@@ -219,6 +219,19 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
+  refreshDebtInvestmentForChart(): Observable<any>
+  {
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json'
+        })
+    }
+    return this.http.get<any>(this.baseURL + 'FinancialDiary/refreshdebtinvestmentforchart/', httpOptions)
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
   saveEquityInvestment(investedamount: number, currentvalue: number): Observable<any>{
     var formData: any = new FormData();
     formData.append("investedamount", investedamount);
