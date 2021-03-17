@@ -33,13 +33,13 @@ export class SipCreateFormComponent implements OnInit {
     this.IsWait = true;
     this.financialService.addInvestment(this.investmentDetailsRequest.fundName, this.investmentDetailsRequest.date, this.investmentDetailsRequest.denomination, this.investmentDetailsRequest.profile).subscribe(
       (data: any) => {
-        this.alertservice.openAlertDialog('Investment created successfully.');
+        this.alertservice.openAlertDialog('SIP added successfully.');
         this.IsWait = false;
       },
       (error)=>
       {
         console.log(error);
-        this.alertservice.openAlertDialog('Errored while adding investment!');
+        this.alertservice.openAlertDialog('Errored while adding SIP!');
         this.IsWait = false;
       }
     );

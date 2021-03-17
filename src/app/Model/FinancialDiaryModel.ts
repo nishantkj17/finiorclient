@@ -27,12 +27,11 @@ export class Returns {
   chartLabels: string[]; 
 } 
 
-export class DashboardDataForChart{
-  epfo: number;
-  mutualfund: number;
+export class DashboardAssetDetails{
+  cardclass: string;
+  investmenttype: number;
+  currentvalue: number;
   equity: number;
-  date: string;
-  ppf: number;
 }
 
 export class Debt{

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
-import { InvestmentDetails, Returns, InvestmentReturnDataForChart, DashboardDataForChart, Debt } from '../model/financialdiarymodel';
+import { InvestmentDetails, Returns, Debt, DashboardAssetDetails } from '../model/financialdiarymodel';
 
 @Injectable({
   providedIn: 'root'
@@ -201,7 +201,7 @@ export class financialsService {
           'Content-Type': 'application/json'
         })
     }
-    return this.http.get<DashboardDataForChart>(this.baseURL + 'FinancialDiary/getassetsdashboarddata/', httpOptions)
+    return this.http.get<DashboardAssetDetails[]>(this.baseURL + 'FinancialDiary/getassetsdashboarddata/', httpOptions)
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
