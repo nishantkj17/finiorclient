@@ -14,105 +14,18 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './sip-entry-tracker.component.html',
 })
 export class SipEntryTrackerComponent implements OnInit {
-  public dates: any[];
-  investmentDetailsRequest: InvestmentDetails;
-  investmentReturnRequest: InvestmentReturnDetails;
-  investmentDetails: InvestmentDetails[];
   IsWait: boolean;
-    profile: any;
+  actions: any;
+  selectedAction: string;
   ngOnInit(): void {
-     this.dates = ["1", "2", "3", "4", "5", "6",
-      "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
-      "17", "18", "19", "20", "21", "22", "23", "24", "25", "26",
-      "27", "28"
-    ];
-      this.profile = ["Nishant Jha", "Ranjana Jha"];
-      this.IsWait = false;
-    //this.populateFundDetailsV1();
+      this.actions = ["Add SIP Details", "Save mutual fund Return", "Save provident fund", "Save Equity", "Add Debt"];
+
   }
   constructor( private financialService: financialsService, private router: Router, private dialog: MatDialog,
     private snackBar: MatSnackBar) {
-    this.investmentDetailsRequest = new InvestmentDetails();
-    this.investmentReturnRequest = new InvestmentReturnDetails();
-  }
- 
- 
-  populateFundDetailsV1() {
-    this.IsWait = true;
-    this.financialService.getInvestmentDetails().subscribe(
-      (data: any) => {
-        if (data.length > 0) {
-          this.investmentDetails = data;
-          this.IsWait = false;          
-        }
-      },
-      (error) => {
-        console.log(error);
-        this.IsWait = false;
-      }
-    );
+
   }
 
-  addInvestment() {
-    this.IsWait = true;
-    this.financialService.addInvestment(this.investmentDetailsRequest.fundName, this.investmentDetailsRequest.date, this.investmentDetailsRequest.denomination, this.investmentDetailsRequest.profile).subscribe(
-      (data: any) => {
-        this.openAlertDialog('Investment created successfully.');
-        this.IsWait = false;
-      },
-      (error)=>
-      {
-        console.log(error);
-        this.openAlertDialog('Errored while adding investment!');
-        this.IsWait = false;
-      }
-    );
-  }
-  saveReturns() {
-    this.IsWait = true;
-    this.financialService.saveReturns(this.investmentReturnRequest.profile, this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue).subscribe(
-      (data: any) => {
-        this.openAlertDialog('Investment returns saved successfully.');
-        this.IsWait = false;
-      },
-      (error) => {
-        console.log(error);
-        this.openAlertDialog('Errored while saving investment returns!');
-        this.IsWait = false;
-      }
-    );
-  }
-  saveEquityInvestment()
-  {
-    this.IsWait = true;
-    this.financialService.saveEquityInvestment( this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue).subscribe(
-      (data: any) => {
-        this.openAlertDialog('Equity details saved successfully.');
-        this.IsWait = false;
-      },
-      (error) => {
-        console.log(error);
-        this.openAlertDialog('Errored while saving equity details!');
-        this.IsWait = false;
-      } 
-    );
-  }
-
-  saveProvidentFund()
-  {
-    this.IsWait = true;
-    this.financialService.saveProvidentFundDetails( this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue, this.investmentReturnRequest.type, this.investmentReturnRequest.profile).subscribe(
-      (data: any) => {
-        this.openAlertDialog('Provident fund details saved successfully.');
-        this.IsWait = false;
-      },
-      (error) => {
-        console.log(error);
-        this.openAlertDialog('Errored while saving Provident fund details!');
-        this.IsWait = false;
-      } 
-    );
-  }
   openDialog(item: InvestmentDetails) {
     const dialogRef = this.dialog.open(ConfirmationDialog,{
       data:{

@@ -1,0 +1,26 @@
+<div class="col col-lg-12">
+    <h3 class="heading">PF Details</h3>
+    <div class="col col-lg-12">
+        <select id="profile" name="profile" [(ngModel)]=investmentReturnRequest.profile class="form-control cust-sel">
+          <option value="undefined" selected disabled>Select Profile</option>
+          <option *ngFor="let name of profile" [ngValue]="name">{{name}}</option>
+        </select>
+      </div>
+      <br/>
+  <div class="col col-lg-12">
+    <input type="text" placeholder="Contribution" name="investment" [(ngModel)]=investmentReturnRequest.investedamount class="form-control" />
+  </div>
+  <br/>
+  <div class="col col-lg-12">
+    <input type="text" placeholder="Interest" name="currentvalue" [(ngModel)]=investmentReturnRequest.currentvalue class="form-control" />
+  </div>
+  <br/>
+  <div class="col col-lg-12">
+    <input type="text" placeholder="Enter PF Type" name="type" [(ngModel)]=investmentReturnRequest.type class="form-control" />
+  </div>
+  <br/>
+  <div class="col col-lg-12">
+    <button (click)='saveProvidentFund()' class="btn btn-secondary">Save PF</button>
+  </div>
+</div>
+<mat-progress-bar mode="indeterminate" *ngIf="IsWait"></mat-progress-bar>

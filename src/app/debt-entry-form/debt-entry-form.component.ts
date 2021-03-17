@@ -65,7 +65,7 @@ export class DebtEntryFormComponent implements OnInit {
         if(data==1)
         {this.openAlertDialog("Chart data updated successfully!");}
         else
-        {this.openAlertDialog("Chart data already refrehsed for the day!");}
+        {this.openAlertDialog("Chart data already updated for the day!");}
       },
       (error)=>
       {

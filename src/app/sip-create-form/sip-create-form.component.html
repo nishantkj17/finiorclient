@@ -1,0 +1,29 @@
+<div class="col col-lg-12">
+    <h3 class="heading">SIP</h3>
+    <div class="col col-lg-12">
+        <input type="text" placeholder="Enter Fund Name" name="fundname" [(ngModel)]=investmentDetailsRequest.fundName class="form-control" />
+      </div>
+      <br/>
+      <div class="col col-lg-12" *ngIf="dates">
+        <select id="dates" name="date" [(ngModel)]=investmentDetailsRequest.date class="form-control cust-sel">
+          <option value="undefined" selected disabled>Select SIP Date</option>
+          <option *ngFor="let date of dates" [ngValue]="date">{{date}}</option>
+        </select>
+      </div>
+      <br/>
+      <div class="col col-lg-12">
+        <input type="text" placeholder="Enter Amount" name="denomination" [(ngModel)]=investmentDetailsRequest.denomination class="form-control" />
+      </div>
+      <br/>
+      <div class="col col-lg-12">
+        <select id="profile" name="profile" [(ngModel)]=investmentDetailsRequest.profile class="form-control cust-sel">
+          <option value="undefined" selected disabled>Select Profile</option>
+          <option *ngFor="let name of profile" [ngValue]="name">{{name}}</option>
+        </select>
+      </div>
+      <br/>
+      <div class="col col-lg-12">
+        <button (click)='addInvestment()' class="btn btn-secondary">Add SIP Details</button>
+      </div>
+</div>
+<mat-progress-bar mode="indeterminate" *ngIf="IsWait"></mat-progress-bar>

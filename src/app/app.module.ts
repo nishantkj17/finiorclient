@@ -62,6 +62,10 @@ import { SipDetailsDateComponent } from './sip-details-date/sip-details-date.com
 import { SipDetailsFundComponent } from './sip-details-fund/sip-details-fund.component';
 import { AssetsDashboardComponent } from './assets-dashboard/assets-dashboard.component';
 import { DebtsDashboardComponent } from './debts-dashboard/debts-dashboard.component';
+import { MutualFundReturnCreateFormComponent } from './mutual-fund-return-create-form/mutual-fund-return-create-form.component';
+import { EquityReturnCreateFormComponent } from './equity-return-create-form/equity-return-create-form.component';
+import { ProvidentFundCreateFormComponent } from './provident-fund-create-form/provident-fund-create-form.component';
+import { SipCreateFormComponent } from './sip-create-form/sip-create-form.component';
 
 
 const googleLoginOptions = {
@@ -97,7 +101,11 @@ export function provideConfig() {
     SipDetailsDateComponent,
     SipDetailsFundComponent,
     AssetsDashboardComponent,
-    DebtsDashboardComponent
+    DebtsDashboardComponent,
+    MutualFundReturnCreateFormComponent,
+    EquityReturnCreateFormComponent,
+    ProvidentFundCreateFormComponent,
+    SipCreateFormComponent
   ],
   imports: [
     BrowserModule,
