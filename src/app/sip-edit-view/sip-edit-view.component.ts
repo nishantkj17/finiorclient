@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertDialogClass } from '../common/alert-dialog-class';
 import { InvestmentDetails } from '../model/financialdiarymodel';
 import { financialsService } from '../service/financialsService';
 
@@ -13,11 +14,8 @@ export class SipEditViewComponent {
    IsWait: boolean;
   investmentDetailsRequest: InvestmentDetails;
   investmentDetails: InvestmentDetails;
-  public incrementCounter() {
-    this.currentCount++;
-  }
 
-  constructor(private financialService: financialsService) {
+  constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
     this.investmentDetailsRequest = new InvestmentDetails();
   }
   ngOnInit(): void {
@@ -28,17 +26,16 @@ export class SipEditViewComponent {
     ];
     this.profile = ["Nishant Jha", "Ranjana Jha"];
     this.investmentDetails = history.state as InvestmentDetails;
-    //console.log(this.investmentDetails);
   }
   updateInvestment() {
     this.IsWait = true;
     this.financialService.updateSipDetails(this.investmentDetails).subscribe(
       (data: any) => {
-          alert('SIP details updated successfully');
+          this.alertservice.openAlertDialog('SIP details updated successfully');
           this.IsWait = false;
       },
       (error) => {
-        console.log(error);
+        this.alertservice.openAlertDialog(error);
       }
     );
   }
@@ -47,12 +44,10 @@ export class SipEditViewComponent {
       (data: any) => {
         if (data.length > 0) {
           this.investmentDetails = data;
-          //console.log(this.investmentDetails);
-
         }
       },
       (error) => {
-        console.log(error);
+        this.alertservice.openAlertDialog(error);
       }
     );
   }
