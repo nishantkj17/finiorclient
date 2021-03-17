@@ -193,7 +193,7 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
-  getDashboardDataForChart(): Observable<any>
+  getAssetsDashboardData(): Observable<any>
   {
     const httpOptions = {
       headers: new HttpHeaders(
@@ -201,7 +201,7 @@ export class financialsService {
           'Content-Type': 'application/json'
         })
     }
-    return this.http.get<DashboardDataForChart>(this.baseURL + 'FinancialDiary/getdashboarddata/', httpOptions)
+    return this.http.get<DashboardDataForChart>(this.baseURL + 'FinancialDiary/getassetsdashboarddata/', httpOptions)
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -237,6 +237,19 @@ export class financialsService {
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
     );
-    
+  }
+
+  getDebtAccountName(): Observable<any>
+  {
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json'
+        })
+    }
+    return this.http.get<string[]>(this.baseURL + 'FinancialDiary/getdebtaccountname/', httpOptions)
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
   }
 }

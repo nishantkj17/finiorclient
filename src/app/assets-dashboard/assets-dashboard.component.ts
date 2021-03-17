@@ -4,17 +4,15 @@ import { DashboardDataForChart } from '../model/financialdiarymodel';
 import { financialsService } from '../service/financialsService';
 
 @Component({
-  selector: 'app-investment-savings-details',
-  templateUrl: './investment-savings-details.component.html',
-  styleUrls: ['./investment-savings-details.component.css']
+  selector: 'app-assets-dashboard',
+  templateUrl: './assets-dashboard.component.html',
+  styleUrls: ['./assets-dashboard.component.css']
 })
-export class InvestmentSavingsDetailsComponent implements OnInit {
+export class AssetsDashboardComponent implements OnInit {
   dasbhboardData: DashboardDataForChart;
-   _router: string;
   constructor(private financialService: financialsService, private router: Router) {  
 
   }
-  
 
   ngOnInit(): void {
     this.getDashboardData();

@@ -60,6 +60,8 @@ import { MfIndividualInvestmentReportComponent } from './mf-individual-investmen
 import { MfCombinedInvestmentReportComponent } from './mf-combined-investment-report/mf-combined-investment-report.component';
 import { SipDetailsDateComponent } from './sip-details-date/sip-details-date.component';
 import { SipDetailsFundComponent } from './sip-details-fund/sip-details-fund.component';
+import { AssetsDashboardComponent } from './assets-dashboard/assets-dashboard.component';
+import { DebtsDashboardComponent } from './debts-dashboard/debts-dashboard.component';
 
 
 const googleLoginOptions = {
@@ -93,7 +95,9 @@ export function provideConfig() {
     MfIndividualInvestmentReportComponent,
     MfCombinedInvestmentReportComponent,
     SipDetailsDateComponent,
-    SipDetailsFundComponent
+    SipDetailsFundComponent,
+    AssetsDashboardComponent,
+    DebtsDashboardComponent
   ],
   imports: [
     BrowserModule,

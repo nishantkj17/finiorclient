@@ -23,8 +23,9 @@ export class DebtEntryFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.account = ["SBI Home Loan", "Loan 1", "Loan 2", "Loan 3", "Loan 4","Loan 5", "Loan n"];
+    //this.account = ["SBI Home Loan", "Loan 1", "Loan 2", "Loan 3", "Loan 4","Loan 5", "Loan n"];
     this.IsWait = false;
+    this.getDebtAccountName();
   }
   saveDebtEntry(){
     this.IsWait = true;
@@ -40,8 +41,21 @@ export class DebtEntryFormComponent implements OnInit {
         this.IsWait = false;
       }
     );
-
   }
+
+  getDebtAccountName(){
+    this.IsWait = true;
+    this.financialService.getDebtAccountName().subscribe(
+      (data: any) => {
+        this.account=data as string[];
+      },
+      (error)=>
+      {
+        console.log(error);
+      }
+    );
+  }
+
   refreshDebtSavingChart()
   {}
   openAlertDialog(alertMmessage:string) {

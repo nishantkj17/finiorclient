@@ -1,0 +1,42 @@
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Assets - &#8377;  {{dasbhboardData.mutualfund+dasbhboardData.epfo+dasbhboardData.equity+dasbhboardData.ppf}} </li>
+</ol>
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Mutual Fund</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">&#8377; {{dasbhboardData.mutualfund}}</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">Equity</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">&#8377; {{dasbhboardData.equity}}</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">EPFO</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">&#8377; {{dasbhboardData.epfo}}</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">PPF</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">&#8377; {{dasbhboardData.ppf}}</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
