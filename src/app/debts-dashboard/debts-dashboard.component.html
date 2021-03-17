@@ -2,41 +2,14 @@
     <li class="breadcrumb-item active">Liabilities</li>
 </ol>
 <div class="row">
-    <div class="col-xl-3 col-md-6">
+    <div *ngFor="let debt of debtDasbhboardData" class="col-xl-3 col-md-6">
         <div class="card bg-danger text-white mb-4">
-            <div class="card-body">Home Loan</div>
+            <div class="card-body">{{debt.accountname}}</div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">{{dasbhboardData.mutualfund}}</a>
+                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">&#8377; {{debt.currentbalance}}</a>
                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
 
-        </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-danger text-white mb-4">
-            <div class="card-body">Loan 1</div>
-            <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">{{dasbhboardData.equity}}</a>
-                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-danger text-white mb-4">
-            <div class="card-body">Loan 2</div>
-            <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">{{dasbhboardData.epfo}}</a>
-                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-md-6">
-        <div class="card bg-danger text-white mb-4">
-            <div class="card-body">Loan n</div>
-            <div class="card-footer d-flex align-items-center justify-content-between">
-                <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">{{dasbhboardData.ppf}}</a>
-                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-            </div>
         </div>
     </div>
 </div>

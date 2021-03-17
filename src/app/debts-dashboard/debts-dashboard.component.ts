@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DashboardDataForChart } from '../model/financialdiarymodel';
+import { DashboardDataForChart, Debt } from '../model/financialdiarymodel';
 import { financialsService } from '../service/financialsService';
 
 @Component({
@@ -9,13 +9,24 @@ import { financialsService } from '../service/financialsService';
   styleUrls: ['./debts-dashboard.component.css']
 })
 export class DebtsDashboardComponent implements OnInit {
-  dasbhboardData: DashboardDataForChart;
+  debtDasbhboardData: Debt[];
   constructor(private financialService: financialsService, private router: Router) {  
 
   }
 
   ngOnInit(): void {
-    
+   this.getDebtDashboardData(); 
   }
- 
+  getDebtDashboardData()
+  {
+    this.financialService.getDebtsDashboardData().subscribe(
+      (data: any) => {
+        this.debtDasbhboardData = data as Debt[]; 
+        console.log(this.debtDasbhboardData);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
