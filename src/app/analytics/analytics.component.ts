@@ -13,7 +13,7 @@ export class AnalyticsComponent {
   public returnOnInvestmentIndividualProfile: Returns;
   public equityReturn: Returns;
   public pfSavings: Returns;
-
+  public debtAndInvestment: Returns;
   public lineChartOptions: (ChartOptions & { annotation?: any }) = {
     responsive: true,
 
@@ -41,13 +41,14 @@ export class AnalyticsComponent {
     this.getIndividualInvestmentDetailsForChart();
     this.getEquityReturnForChart();
     this.getPFReturnForChart();
+    this.getDebtInvestmentForChart();
   }
 
   getCombinedInvestmentDetailsForChart() {
     this.financialService.getCombinedInvestmentReturnDataForChart().subscribe(
       (data: any) => {
         this.returnOnInvestment = data as Returns;
-        console.log(this.returnOnInvestment);
+        
       },
       (error) => {
         console.log(error);
@@ -79,7 +80,17 @@ export class AnalyticsComponent {
     this.financialService.getPFReturnForChart().subscribe(
       (data: any) => {
         this.pfSavings = data as Returns;
-        //console.log(this.pfSavings);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  getDebtInvestmentForChart() {
+    this.financialService.getDebtInvestmentForChart().subscribe(
+      (data: any) => {
+        this.debtAndInvestment = data as Returns;
+        console.log(this.debtAndInvestment);
       },
       (error) => {
         console.log(error);

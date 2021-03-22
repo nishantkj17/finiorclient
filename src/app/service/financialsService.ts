@@ -271,4 +271,16 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
+  getDebtInvestmentForChart(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders(
+        {
+          'Content-Type': 'application/json'
+        })
+    }
+    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getdebtinvestmentforchart/', httpOptions)
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
 }
