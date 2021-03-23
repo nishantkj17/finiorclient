@@ -19,6 +19,7 @@ import { InvestmentSavingsDetailsComponent } from './investment-savings-details/
 import { SipDetailsComponent } from './sip-details/sip-details.component';
 import { DebtEntryFormComponent } from './debt-entry-form/debt-entry-form.component';
 import {AlertDialogClass} from '../app/common/alert-dialog-class';
+import {PrintPDF} from '../app/common/print-pdf';
 
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -156,7 +157,8 @@ export function provideConfig() {
     MatTooltipModule,
     MatTreeModule,
     OverlayModule,
-    AlertDialogClass
+    AlertDialogClass,
+    PrintPDF
   ],
   providers: [
     {
