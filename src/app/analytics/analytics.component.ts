@@ -30,9 +30,7 @@ export class AnalyticsComponent {
   public lineChartLegend = true;
   public lineChartType = 'line';
   public lineChartPlugins = [];
-  public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
-  public barChartPlugins = [];
+
   constructor(private financialService: financialsService) {
   }
 

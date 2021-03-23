@@ -27,14 +27,14 @@
     <div class="col-lg-6" *ngIf="pfSavings">
         <h4>Provident fund</h4>
         <canvas baseChart width="500" height="400" [datasets]="pfSavings.investmentReturnChart"
-            [labels]="pfSavings.chartLabels" [options]="barChartOptions" [plugins]="barChartPlugins"
-            [legend]="barChartLegend" [chartType]="barChartType">
+            [labels]="pfSavings.chartLabels" [options]="barChartOptions" [plugins]="lineChartPlugins"
+            [legend]="lineChartLegend" [chartType]="lineChartType">
         </canvas>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-6" *ngIf="debtAndInvestment">
-        <h4>Individual investment return (Stocks)</h4>
+        <h4>Investments/Debt ratio</h4>
         <canvas baseChart width="500" height="400" [datasets]="debtAndInvestment.investmentReturnChart"
             [labels]="debtAndInvestment.chartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
             [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
