@@ -12,8 +12,11 @@ export class ProvidentFundCreateFormComponent implements OnInit {
   investmentReturnRequest: InvestmentReturnDetails;
   IsWait: boolean;
   profile: any;
+  selectedAction: string;
   constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
     this.investmentReturnRequest = new InvestmentReturnDetails();
+    this.investmentReturnRequest.investedamount=0;
+    this.investmentReturnRequest.currentvalue=0;
   }
 
   ngOnInit(): void {
@@ -21,7 +24,7 @@ export class ProvidentFundCreateFormComponent implements OnInit {
   }
   saveProvidentFund() {
     this.IsWait = true;
-    this.financialService.saveProvidentFundDetails(this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue, this.investmentReturnRequest.type, this.investmentReturnRequest.profile).subscribe(
+    this.financialService.saveProvidentFundDetails(this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue, this.selectedAction, this.investmentReturnRequest.profile).subscribe(
       (data: any) => {
         this.alertservice.openAlertDialog('Provident fund details saved successfully.');
         this.IsWait = false;

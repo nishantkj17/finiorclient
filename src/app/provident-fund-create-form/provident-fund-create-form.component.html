@@ -8,17 +8,22 @@
   </div>
   <br />
   <div class="col col-lg-12">
-    <input type="text" placeholder="Contribution" name="investment" [(ngModel)]=investmentReturnRequest.investedamount
+    <select id="type" name="type" [(ngModel)]=selectedAction class="form-control cust-sel">
+      <option value="undefined" selected disabled>Select PF Type</option>
+      <option value="EPFO" selected>EPFO</option>
+      <option value="PPF" selected>PPF</option>
+    </select>
+  </div>
+
+  <div class="col col-lg-12" *ngIf="selectedAction=='EPFO'">
+    <br />
+    <input type="text" placeholder="EPFO Balance" name="investment" [(ngModel)]=investmentReturnRequest.investedamount
       class="form-control" />
   </div>
-  <br />
-  <div class="col col-lg-12">
-    <input type="text" placeholder="Interest" name="currentvalue" [(ngModel)]=investmentReturnRequest.currentvalue
-      class="form-control" />
-  </div>
-  <br />
-  <div class="col col-lg-12">
-    <input type="text" placeholder="Enter PF Type" name="type" [(ngModel)]=investmentReturnRequest.type
+
+  <div class="col col-lg-12" *ngIf="selectedAction=='PPF'">
+    <br />
+    <input type="text" placeholder="PPF Balance" name="currentvalue" [(ngModel)]=investmentReturnRequest.currentvalue
       class="form-control" />
   </div>
   <br />

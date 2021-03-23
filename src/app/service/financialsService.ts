@@ -236,10 +236,10 @@ export class financialsService {
       );
   }
 
-  saveProvidentFundDetails(investedamount: number, currentvalue: number, type: string, profile: string): Observable<any> {
+  saveProvidentFundDetails(epfoPrimaryBalance: number, ppfBalance: number, type: string, profile: string): Observable<any> {
     var formData: any = new FormData();
-    formData.append("investedamount", investedamount);
-    formData.append("currentvalue", currentvalue);
+    formData.append("epfoPrimaryBalance", epfoPrimaryBalance);
+    formData.append("ppfBalance", ppfBalance);
     formData.append("type", type);
     formData.append("profile", profile);
     return this.http.post<any>(this.baseURL + 'FinancialDiary/saveprovidentfunddetails', formData)
