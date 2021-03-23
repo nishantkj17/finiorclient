@@ -12,6 +12,17 @@
             <div class="card-body" id="FinancialDashboard">
                   <app-assets-dashboard></app-assets-dashboard>
                   <app-debts-dashboard></app-debts-dashboard>
+                  <div  class="card mb-4" *ngIf="showReports">
+                        <div class="card-header">
+                              <span style="font-size: 1em; color: Tomato;">
+                                    <i class="fas fa-chart-line mr-1"></i>
+                              </span>
+                              Reports
+                        </div>
+                        <div class="card-body" id="FinancialReport">
+                              <analytics></analytics>
+                        </div>
+                  </div>
             </div>
       </div>
 </div>
