@@ -10,6 +10,7 @@ import { financialsService } from '../service/financialsService';
 })
 export class AssetsDashboardComponent implements OnInit {
   dasbhboardData: DashboardAssetDetails[];
+  totalSavings:number=0;
   constructor(private financialService: financialsService, private router: Router) {
 
   }
@@ -21,6 +22,10 @@ export class AssetsDashboardComponent implements OnInit {
     this.financialService.getAssetsDashboardData().subscribe(
       (data: any) => {
         this.dasbhboardData = data as DashboardAssetDetails[];
+        this.dasbhboardData.forEach(element => {
+          this.totalSavings+=element.currentvalue;
+          console.log(this.totalSavings);
+        });
         //console.log(this.dasbhboardData);
       },
       (error) => {

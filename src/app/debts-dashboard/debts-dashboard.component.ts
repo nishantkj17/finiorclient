@@ -10,6 +10,7 @@ import { financialsService } from '../service/financialsService';
 })
 export class DebtsDashboardComponent implements OnInit {
   debtDasbhboardData: Debt[];
+  totalDebts:number=0;
   constructor(private financialService: financialsService, private router: Router) {
 
   }
@@ -21,7 +22,10 @@ export class DebtsDashboardComponent implements OnInit {
     this.financialService.getDebtsDashboardData().subscribe(
       (data: any) => {
         this.debtDasbhboardData = data as Debt[];
-        console.log(this.debtDasbhboardData);
+        this.debtDasbhboardData.forEach(element => {
+          this.totalDebts+=element.currentbalance;
+
+        });
       },
       (error) => {
         console.log(error);
