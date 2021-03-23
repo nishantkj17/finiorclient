@@ -5,10 +5,15 @@
     <br />
     <div class="card mb-4">
       <div class="card-header">
-        <i class="fas fa-table mr-1"></i>
+        <span style="font-size: 1em; color: Tomato;">
+          <i class="fas fa-table mr-1"></i>
+        </span>
         Mutual fund return by profile
+        <span style="font-size: 1em; color: Tomato; cursor: pointer; float:right" (click)="printIndividualReturn()">
+          <i class="fas fa-file-pdf mr-1"></i>
+        </span>
       </div>
-      <div class="card-body">
+      <div class="card-body" id="IndividualReturn">
         <app-mf-individual-investment-report></app-mf-individual-investment-report>
       </div>
     </div>
@@ -18,10 +23,15 @@
     <br />
     <div class="card mb-4">
       <div class="card-header">
-        <i class="fas fa-table mr-1"></i>
+        <span style="font-size: 1em; color: Tomato;">
+          <i class="fas fa-table mr-1"></i>
+        </span>
         Combined mututal fund return
+        <span style="font-size: 1em; color: Tomato; cursor: pointer; float:right" (click)="printCombinedReturn()">
+          <i class="fas fa-file-pdf mr-1"></i>
+        </span>
       </div>
-      <div class="card-body">
+      <div class="card-body" id="CombinedReturn">
         <app-mf-combined-investment-report></app-mf-combined-investment-report>
       </div>
     </div>
@@ -30,10 +40,15 @@
     <br />
     <div class="card mb-4">
       <div class="card-header">
+        <span style="font-size: 1em; color: Tomato;">
         <i class="fas fa-table mr-1"></i>
+      </span>
         SIP Details
+        <span style="font-size: 1em; color: Tomato; cursor: pointer; float:right" (click)="printSIPDetails()">
+          <i class="fas fa-file-pdf mr-1"></i>
+        </span>
       </div>
-      <div class="card-body">
+      <div class="card-body" id="SIPDetails">
         <app-sip-details></app-sip-details>
       </div>
     </div>
@@ -42,10 +57,15 @@
     <br />
     <div class="card mb-4">
       <div class="card-header">
+        <span style="font-size: 1em; color: Tomato;">
         <i class="fas fa-table mr-1"></i>
+      </span>
         SIP Details by Date
+        <span style="font-size: 1em; color: Tomato; cursor: pointer; float:right" (click)="printSIPByDate()">
+          <i class="fas fa-file-pdf mr-1"></i>
+        </span>
       </div>
-      <div class="card-body">
+      <div class="card-body" id="SIPByDate">
         <app-sip-details-date></app-sip-details-date>
       </div>
     </div>
@@ -55,10 +75,15 @@
     <br />
     <div class="card mb-4">
       <div class="card-header">
+        <span style="font-size: 1em; color: Tomato;">
         <i class="fas fa-table mr-1"></i>
+      </span>
         SIP by Mutual Fund name
+        <span style="font-size: 1em; color: Tomato; cursor: pointer; float:right" (click)="printSIPByFund()">
+          <i class="fas fa-file-pdf mr-1"></i>
+        </span>
       </div>
-      <div class="card-body">
+      <div class="card-body" id="SIPByFund">
         <app-sip-details-fund></app-sip-details-fund>
       </div>
     </div>
@@ -68,10 +93,15 @@
     <br />
     <div class="card mb-4">
       <div class="card-header">
-        <i class="fas fa-table mr-1"></i>
-        SIP by Mutual Fund name
+        <span style="font-size: 1em; color: Tomato;">
+          <i class="fas fa-chart-line mr-1"></i>
+        </span>
+        Reports
+        <span style="font-size: 1em; color: Tomato; cursor: pointer; float:right" (click)="printReports()">
+          <i class="fas fa-file-pdf mr-1"></i>
+        </span>
       </div>
-      <div class="card-body">
+      <div class="card-body" id="FinancialReport">
         <analytics></analytics>
       </div>
     </div>

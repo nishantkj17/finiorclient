@@ -21,6 +21,7 @@ export class SipDetailsComponent implements OnInit {
   IsWait: boolean;
   profile: string[];
   dates: string[];
+  paginationNumber: number[]=[5, 10, 20];
   //@ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   //@ViewChild(MatSort, { static: true }) sort: MatSort;
   displayedColumns: string[] = ['fundName', 'date', 'denomination', 'profile', 'editdelete'];
@@ -74,6 +75,7 @@ export class SipDetailsComponent implements OnInit {
           this.dataSource = new MatTableDataSource<InvestmentDetails>(this.investmentDetails);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+          this.paginationNumber.push(this.investmentDetails.length);
           this.IsWait = false;
         }
       },

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ElementRef ,ViewChild } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Color } from 'ng2-charts';
 import { Returns } from '../model/financialdiarymodel';

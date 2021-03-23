@@ -19,6 +19,7 @@ export class MfIndividualInvestmentReportComponent implements OnInit {
   private paginator: MatPaginator;
   private sort: MatSort;
   IsWait: boolean;
+  paginationNumber: number[]=[5, 10, 20];
   constructor(private financialService: financialsService, private router: Router) {
 
   }
@@ -54,6 +55,7 @@ export class MfIndividualInvestmentReportComponent implements OnInit {
           this.dataSource = new MatTableDataSource<InvestmentReturnDetails>(this.totalInvestment);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+          this.paginationNumber.push(this.totalInvestment.length);
           //console.log(this.sipDetailsByDate);
         }
       },
