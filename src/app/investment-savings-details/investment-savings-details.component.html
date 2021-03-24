@@ -1,12 +1,18 @@
 <div class="container-fluid">
       <div class="card mb-4">
             <div class="card-header">
-                  <span style="font-size: 1em; color: Tomato;">
+                  <span style="font-size: 1.5em; color: Tomato;">
                         <i class="fas fa-tachometer-alt mr-1"></i>
                   </span>
                   Dashboard
-                  <span style="font-size: 1em; color: Tomato; cursor: pointer; float:right" (click)="printDashBoard()">
+                  <span style="font-size: 1.5em; color: Tomato; cursor: pointer; float:right" (click)="printDashBoard()">
                         <i class="fas fa-file-pdf mr-1"></i>
+                  </span>
+                  <span *ngIf="!showReports" style="font-size: 1.5em; color: Tomato; cursor: pointer; float:right" (click)="showChart()">
+                        <i class="fas fa-chart-line mr-1"></i>
+                  </span>
+                  <span *ngIf="showReports" style="font-size: 1.5em; color:blueviolet; cursor: pointer; float:right" (click)="hideChart()">
+                        <i class="fas fa-chart-line mr-1"></i>
                   </span>
             </div>
             <div class="card-body" id="FinancialDashboard">
