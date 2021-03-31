@@ -39,7 +39,7 @@ export class InvestmentTrackerComponent {
   }
   public printSIPDetails()  
   { 
-    var data = document.getElementById('SIPDetails');  
+    var data = document.getElementById('SIPDetailsChild');  
     this.printService.captureScreen(data, 'SIPDetails.pdf');
   }
   
