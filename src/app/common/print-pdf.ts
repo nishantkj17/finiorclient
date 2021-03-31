@@ -16,9 +16,11 @@ export class PrintPDF {
         var pageHeight = 295;    
         var imgHeight = canvas.height * imgWidth / canvas.width;  
         var heightLeft = imgHeight;  
-    
-        const contentDataURL = canvas.toDataURL('image/png')  
-        let pdf = new jspdf.jsPDF('p', 'mm', [210, 350]); // A4 size page of PDF  
+        const contentDataURL = canvas.toDataURL('image/png')
+        
+        pageHeight= Math.ceil(imgHeight)>295?Math.ceil(imgHeight):295;
+        console.log("pageHeight"+pageHeight);
+        let pdf = new jspdf.jsPDF('p', 'mm', [210, pageHeight]); // A4 size page of PDF  
         
         var position = 0;  
         pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
