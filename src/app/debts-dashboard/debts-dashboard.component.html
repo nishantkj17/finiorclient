@@ -2,9 +2,11 @@
     <li class="breadcrumb-item active">Liabilities - &#8377; {{totalDebts}}</li>
 </ol>
 <div class="row">
-    <div *ngFor="let debt of debtDasbhboardData" class="col-xl-3 col-md-6">
+    <div *ngFor="let debt of debtDasbhboardData" class="col-xl-2 col-md-6">
         <div class="card bg-danger text-white mb-4">
-            <div class="card-body">{{debt.accountname}}</div>
+            <div class="card-body d-flex align-items-center justify-content-between">
+                <div class="small text-white">{{debt.accountname}}</div>
+            </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
                 <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">&#8377;
                     {{debt.currentbalance}}</a>
