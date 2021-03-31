@@ -32,6 +32,7 @@ export class DashboardAssetDetails {
   investmenttype: number;
   currentvalue: number;
   equity: number;
+  increased:boolean;
 }
 
 export class Debt {
