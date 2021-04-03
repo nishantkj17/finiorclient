@@ -67,6 +67,7 @@ import { MutualFundReturnCreateFormComponent } from './mutual-fund-return-create
 import { EquityReturnCreateFormComponent } from './equity-return-create-form/equity-return-create-form.component';
 import { ProvidentFundCreateFormComponent } from './provident-fund-create-form/provident-fund-create-form.component';
 import { SipCreateFormComponent } from './sip-create-form/sip-create-form.component';
+import { FundHouseIconComponent } from './common/fund-house-icon/fund-house-icon.component';
 
 
 const googleLoginOptions = {
@@ -105,7 +106,8 @@ export function provideConfig() {
     MutualFundReturnCreateFormComponent,
     EquityReturnCreateFormComponent,
     ProvidentFundCreateFormComponent,
-    SipCreateFormComponent
+    SipCreateFormComponent,
+    FundHouseIconComponent
   ],
   imports: [
     BrowserModule,
