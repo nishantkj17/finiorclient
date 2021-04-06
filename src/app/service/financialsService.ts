@@ -3,21 +3,21 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { InvestmentDetails, Returns, Debt, DashboardAssetDetails } from '../model/financialdiarymodel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class financialsService {
-
-
   baseURL: string;
 
   constructor(private http: HttpClient) {
-    this.baseURL = 'https://localhost:5001/';
+    this.baseURL = environment.baseUrl;
   }
 
   getInvestmentDetails(): Observable<any> {
+    
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -31,6 +31,7 @@ export class financialsService {
   }
 
   getSipDetailsByFund(): Observable<any> {
+    console.log(this.baseURL);
     const httpOptions = {
       headers: new HttpHeaders(
         {
@@ -191,6 +192,7 @@ export class financialsService {
       );
   }
   getAssetsDashboardData(): Observable<any> {
+    console.log(this.baseURL);
     const httpOptions = {
       headers: new HttpHeaders(
         {

@@ -24,7 +24,7 @@ export class AssetsDashboardComponent implements OnInit {
         this.dasbhboardData = data as DashboardAssetDetails[];
         this.dasbhboardData.forEach(element => {
           this.totalSavings+=element.currentvalue;
-          console.log(this.totalSavings);
+          //console.log(this.totalSavings);
         });
         //console.log(this.dasbhboardData);
       },
