@@ -46,7 +46,9 @@ export class SipDetailsComponent implements OnInit {
 
   }
 
-
+  public doFilter = (value: string) => {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
   @ViewChild(MatSort) set matSort(ms: MatSort) {
     this.sort = ms;
     this.setDataSourceAttributes();
@@ -71,7 +73,7 @@ export class SipDetailsComponent implements OnInit {
       (data: any) => {
         if (data.length > 0) {
           this.investmentDetails = data as InvestmentDetails[];
-            
+
           this.dataSource = new MatTableDataSource<InvestmentDetails>(this.investmentDetails);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;

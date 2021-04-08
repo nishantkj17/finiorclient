@@ -68,7 +68,7 @@ import { EquityReturnCreateFormComponent } from './equity-return-create-form/equ
 import { ProvidentFundCreateFormComponent } from './provident-fund-create-form/provident-fund-create-form.component';
 import { SipCreateFormComponent } from './sip-create-form/sip-create-form.component';
 import { FundHouseIconComponent } from './common/fund-house-icon/fund-house-icon.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const googleLoginOptions = {
   scope: 'nishantkj@gmail.com'
@@ -160,7 +160,9 @@ export function provideConfig() {
     MatTreeModule,
     OverlayModule,
     AlertDialogClass,
-    PrintPDF
+    PrintPDF,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
     {
