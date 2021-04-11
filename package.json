@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node server.js",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -30,6 +30,7 @@
     "angularx-social-login": "^3.5.4",
     "bootstrap": "^4.6.0",
     "chart.js": "^2.9.4",
+    "express": "^4.17.1",
     "html2canvas": "^1.0.0-rc.7",
     "jquery": "^3.6.0",
     "jspdf": "^2.3.1",
