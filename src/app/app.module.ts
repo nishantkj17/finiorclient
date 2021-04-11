@@ -20,7 +20,7 @@ import { SipDetailsComponent } from './sip-details/sip-details.component';
 import { DebtEntryFormComponent } from './debt-entry-form/debt-entry-form.component';
 import {AlertDialogClass} from '../app/common/alert-dialog-class';
 import {PrintPDF} from '../app/common/print-pdf';
-
+import { InvestmentDetails, Returns, Debt, DashboardAssetDetails } from '../app/Model/FinancialDiaryModel';
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -107,7 +107,8 @@ export function provideConfig() {
     EquityReturnCreateFormComponent,
     ProvidentFundCreateFormComponent,
     SipCreateFormComponent,
-    FundHouseIconComponent
+    FundHouseIconComponent,
+    InvestmentDetails, Returns, Debt, DashboardAssetDetails
   ],
   imports: [
     BrowserModule,
