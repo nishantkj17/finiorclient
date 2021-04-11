@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router, RouterOutlet } from '@angular/router';
-import { InvestmentReturnDetails } from '../model/financialdiarymodel';
+import { InvestmentReturnDetails } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
 @Component({
   selector: 'app-mf-combined-investment-report',

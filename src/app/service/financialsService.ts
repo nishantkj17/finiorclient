@@ -1,4 +1,3 @@
-/// <reference path="../model/financialdiarymodel.ts" />
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';

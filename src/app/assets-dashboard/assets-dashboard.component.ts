@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DashboardAssetDetails } from '../model/financialdiarymodel';
+import { DashboardAssetDetails } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
 
 @Component({

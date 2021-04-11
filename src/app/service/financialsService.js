@@ -10,7 +10,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.financialsService = void 0;
-/// <reference path="../model/financialdiarymodel.ts" />
 var http_1 = require("@angular/common/http");
 var core_1 = require("@angular/core");
 var financialsService = /** @class */ (function () {

@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef ,ViewChild } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Color } from 'ng2-charts';
-import { Returns } from '../model/financialdiarymodel';
+import { Returns } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
 
 @Component({

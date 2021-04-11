@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { ConfirmationDialog } from '../confirmation-dialog/confirmation-dialog.component';
-import { InvestmentDetails } from '../model/financialdiarymodel';
+import { InvestmentDetails } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';

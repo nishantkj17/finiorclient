@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AlertDialogClass } from '../common/alert-dialog-class';
-import { InvestmentDetails } from '../model/financialdiarymodel';
+import { InvestmentDetails } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
 
 @Component({
