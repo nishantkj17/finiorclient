@@ -1,3 +1,7 @@
+export class financialdiarymodel
+{
+  
+}
 export class InvestmentDetails {
   fundName: string;
   date: string;
