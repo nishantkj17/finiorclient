@@ -4,7 +4,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { InvestmentDetails, Returns, Debt, DashboardAssetDetails } from '../model/financialdiarymodel';
+//import { InvestmentDetails, Returns, Debt, DashboardAssetDetails } from '../model/financialdiarymodel';
 
 @Injectable({
   providedIn: 'root'
@@ -285,4 +285,48 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
+
+}
+export class InvestmentDetails {
+  fundName: string;
+  date: string;
+  denomination: string;
+  profile: string;
+  id: string;
+}
+
+export class InvestmentReturnDetails {
+  profile: string;
+  investedamount: number;
+  currentvalue: number;
+  returns: string;
+  createddate: string;
+  id: string;
+  type: string;
+}
+
+export class InvestmentReturnDataForChart {
+  data: Array<number>;
+  label: string;
+  pointRadius: number;
+}
+
+export class Returns {
+  investmentReturnChart: InvestmentReturnDataForChart[];
+  chartLabels: string[];
+}
+
+export class DashboardAssetDetails {
+  cardclass: string;
+  investmenttype: number;
+  currentvalue: number;
+  equity: number;
+  increased:boolean;
+}
+
+export class Debt {
+  accountname: string;
+  currentbalance: number;
+  createddate: number;
+  id: string;
 }
