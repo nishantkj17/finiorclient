@@ -232,6 +232,16 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
+
+  getInvestmentAccountName(): Observable<any> {
+    const params = new HttpParams()
+    .set('user', this.user);
+    return this.http.get<string[]>(this.baseURL + 'FinancialDiary/getinvestmentaccountname', {params})
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
+
   getDebtInvestmentForChart(): Observable<any> {
   
     const params = new HttpParams()

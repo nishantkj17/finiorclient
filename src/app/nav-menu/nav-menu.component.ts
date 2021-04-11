@@ -24,9 +24,8 @@ export class NavMenuComponent {
     }); this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
-      if(user)
-      {
-      localStorage.setItem('user', user.email);
+      if (user) {
+        localStorage.setItem('user', user.email);
       }
       console.log(this.user);
     });
@@ -37,7 +36,7 @@ export class NavMenuComponent {
   }
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  
+
     this.router.navigate(['dashboard'], {
 
     });
