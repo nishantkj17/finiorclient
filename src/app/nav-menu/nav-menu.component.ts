@@ -24,7 +24,11 @@ export class NavMenuComponent {
     }); this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
-      //console.log(this.user);
+      if(user)
+      {
+      localStorage.setItem('user', user.email);
+      }
+      console.log(this.user);
     });
   }
 
@@ -33,6 +37,7 @@ export class NavMenuComponent {
   }
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  
     this.router.navigate(['dashboard'], {
 
     });
@@ -41,6 +46,7 @@ export class NavMenuComponent {
 
   signOut(): void {
     this.authService.signOut();
+    localStorage.setItem('user', '');
     this.hideLogIn = false;
   }
   collapse() {

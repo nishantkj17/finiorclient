@@ -50,7 +50,7 @@ export class DebtEntryFormComponent implements OnInit {
 
   refreshDebtSavingChart() {
     this.IsWait = true;
-    this.financialService.refreshDebtInvestmentForChart().subscribe(
+    this.financialService.refreshDebtInvestmentForChart(localStorage.getItem('user')).subscribe(
       (data: any) => {
         this.IsWait = false;
         if (data == 1) { this.alertservice.openAlertDialog("Chart data updated successfully!"); }
