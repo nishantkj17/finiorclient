@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SocialAuthService, FacebookLoginProvider, GoogleLoginProvider, SocialUser } from 'angularx-social-login';
+import { financialsService } from '../service/financialsService';
 
 @Component({
   selector: 'app-nav-menu',
@@ -13,7 +14,8 @@ export class NavMenuComponent {
   user: SocialUser;
   loggedIn: boolean;
   hideLogIn: boolean = false;
-  constructor(private fb: FormBuilder, private authService: SocialAuthService, private router: Router) { }
+  validLogin: boolean;
+  constructor(private fb: FormBuilder, private authService: SocialAuthService, private router: Router, private financialService: financialsService) { }
   isExpanded = false;
   @Output() isLoggedIn: EventEmitter<boolean> = new EventEmitter();
   ngOnInit() {
@@ -26,8 +28,9 @@ export class NavMenuComponent {
       this.loggedIn = (user != null);
       if (user) {
         localStorage.setItem('user', user.email);
+        localStorage.setItem("jwt", user.idToken);
       }
-      console.log(this.user);
+      //console.log(this.user);
     });
   }
 
@@ -36,16 +39,16 @@ export class NavMenuComponent {
   }
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-
+  
     this.router.navigate(['dashboard'], {
-
     });
     this.hideLogIn = true;
   }
 
   signOut(): void {
     this.authService.signOut();
-    localStorage.setItem('user', '');
+    localStorage.removeItem('user');
+    localStorage.removeItem("jwt");
     this.hideLogIn = false;
   }
   collapse() {

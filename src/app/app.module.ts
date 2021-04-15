@@ -21,6 +21,7 @@ import { DebtEntryFormComponent } from './debt-entry-form/debt-entry-form.compon
 import {AlertDialogClass} from '../app/common/alert-dialog-class';
 import {PrintPDF} from '../app/common/print-pdf';
 
+
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -83,6 +84,7 @@ let config = [
 export function provideConfig() {
   return config;
 }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -161,8 +163,9 @@ export function provideConfig() {
     AlertDialogClass,
     PrintPDF,
     MatFormFieldModule,
-    MatInputModule,
+    MatInputModule
   ],
+  
   providers: [
     {
       provide: 'SocialAuthServiceConfig',
@@ -178,8 +181,9 @@ export function provideConfig() {
         ]
       } as SocialAuthServiceConfig,
     },
-    ThemeService 
+    ThemeService
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

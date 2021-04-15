@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { financialsService } from '../service/financialsService';
 import { PrintPDF } from '../common/print-pdf';
+
 
 @Component({
   selector: 'app-investment-savings-details',
@@ -12,12 +11,12 @@ export class InvestmentSavingsDetailsComponent implements OnInit {
   _router: string;
   showReports: boolean = false;
 
-  constructor(private financialService: financialsService, private router: Router, private printService: PrintPDF) {
+  constructor(private printService: PrintPDF) {
 
   }
 
   ngOnInit(): void {
-
+   
   }
   public showChart() {
     this.showReports = true;
@@ -28,5 +27,9 @@ export class InvestmentSavingsDetailsComponent implements OnInit {
   public printDashBoard() {
     var data = document.getElementById('FinancialDashboard');
     this.printService.captureScreen(data, 'FinancialDashboard.pdf');
+  }
+
+  public logOut = () => {
+    localStorage.removeItem("jwt");
   }
 }

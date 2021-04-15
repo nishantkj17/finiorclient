@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'investmenttracker',
-    component: InvestmentTrackerComponent
+    component: InvestmentTrackerComponent 
 },
 {
   path: 'sipeditview',

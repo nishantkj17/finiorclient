@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Observable, BehaviorSubject, throwError } from 'rxjs';
+import { of, Observable, BehaviorSubject, throwError } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 //import { InvestmentDetails, Returns, Debt, DashboardAssetDetails } from '../model/financialdiarymodel';
@@ -11,15 +11,24 @@ import { environment } from 'src/environments/environment';
 export class financialsService {
   baseURL: string;
   user: string;
+  validLogin: boolean;
+  token: string | string[];
   constructor(private http: HttpClient) {
     this.baseURL = environment.baseUrl;
     this.user = localStorage.getItem('user');
+    this.token = localStorage.getItem("jwt");
   }
 
   getInvestmentDetails(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<InvestmentDetails[]>(this.baseURL + 'FinancialDiary/getinvestmentdetails', {params})
+      .set('user', this.user);
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<InvestmentDetails[]>(this.baseURL + 'FinancialDiary/getinvestmentdetails', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -27,8 +36,14 @@ export class financialsService {
 
   getSipDetailsByFund(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<any>(this.baseURL + 'FinancialDiary/gettotalsipdetailsbyfund', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<any>(this.baseURL + 'FinancialDiary/gettotalsipdetailsbyfund', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -36,8 +51,14 @@ export class financialsService {
 
   getSipDetailsByDate(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<any>(this.baseURL + 'FinancialDiary/gettotalsipdetailsbydate', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<any>(this.baseURL + 'FinancialDiary/gettotalsipdetailsbydate', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -50,7 +71,12 @@ export class financialsService {
       .set('profile', profile)
       .set('user', this.user);
 
-    return this.http.get<InvestmentDetails[]>(this.baseURL + 'FinancialDiary/getfilteredinvestmentdetails', { params })
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<InvestmentDetails[]>(this.baseURL + 'FinancialDiary/getfilteredinvestmentdetails', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -63,7 +89,12 @@ export class financialsService {
     formData.append("denomination", denomination);
     formData.append("profile", profile);
     formData.append("user", this.user);
-    return this.http.post<any>(this.baseURL + 'FinancialDiary/addinvestment', formData)
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/addinvestment', formData, { headers: headers})
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -75,25 +106,42 @@ export class financialsService {
     formData.append("investedamount", investedamount);
     formData.append("currentvalue", currentvalue);
     formData.append("user", this.user);
-    return this.http.post<any>(this.baseURL + 'FinancialDiary/savereturns', formData)
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/savereturns', formData, { headers: headers})
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
 
   getInvestmentReturnDetails(): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<InvestmentDetails[]>(this.baseURL + 'FinancialDiary/getreturns', {params})
+      .set('user', this.user);
+
+    return this.http.get<InvestmentDetails[]>(this.baseURL + 'FinancialDiary/getreturns', { params, headers })
       .pipe(
-        //tap(data => console.log(JSON.stringify(data))),
+        //     //tap(data => console.log(JSON.stringify(data))),
       );
   }
 
   getCombinedInvestmentReturnDetails(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<InvestmentDetails[]>(this.baseURL + 'FinancialDiary/getcombinedreturns', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<InvestmentDetails[]>(this.baseURL + 'FinancialDiary/getcombinedreturns', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -107,7 +155,12 @@ export class financialsService {
     formData.append("profile", item.profile);
     formData.append("id", item.id);
     formData.append("user", this.user);
-    return this.http.post<any>(this.baseURL + 'FinancialDiary/updatesipdetails', formData)
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/updatesipdetails', formData, { headers: headers})
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -118,7 +171,12 @@ export class financialsService {
       .set('id', id)
       .set('user', this.user);
 
-    return this.http.get<any>(this.baseURL + 'FinancialDiary/deletesipdetails', { params })
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<any>(this.baseURL + 'FinancialDiary/deletesipdetails', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -126,8 +184,14 @@ export class financialsService {
 
   getCombinedInvestmentReturnDataForChart(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getinvestmentdataforchart', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getinvestmentdataforchart', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -135,8 +199,14 @@ export class financialsService {
 
   getIndividualInvestmentReturnDataForChart(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getindividualinvestmentdataforchart', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getindividualinvestmentdataforchart', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -144,17 +214,29 @@ export class financialsService {
 
   getEquityInvestmentReturnDataForChart(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getequityinvestmentreturndata', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getequityinvestmentreturndata', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
 
-  getPFReturnForChart(user:string): Observable<any> {
+  getPFReturnForChart(user: string): Observable<any> {
     const params = new HttpParams()
-    .set('user', user);
-    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getpfreturndataforchart', { params })
+      .set('user', user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getpfreturndataforchart', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -162,26 +244,44 @@ export class financialsService {
 
   getAssetsDashboardData(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<DashboardAssetDetails[]>(this.baseURL + 'FinancialDiary/getassetsdashboarddata', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<DashboardAssetDetails[]>(this.baseURL + 'FinancialDiary/getassetsdashboarddata', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
 
-  getDebtsDashboardData(user:string): Observable<any> {
+  getDebtsDashboardData(user: string): Observable<any> {
     const params = new HttpParams()
-    .set('user', user);
-    return this.http.get<Debt[]>(this.baseURL + 'FinancialDiary/getdebtsdashboarddata', { params })
+      .set('user', user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Debt[]>(this.baseURL + 'FinancialDiary/getdebtsdashboarddata', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
 
-  refreshDebtInvestmentForChart(user:string): Observable<any> {
+  refreshDebtInvestmentForChart(user: string): Observable<any> {
     const params = new HttpParams()
-    .set('user', user);
-    return this.http.get<any>(this.baseURL + 'FinancialDiary/refreshdebtinvestmentforchart', { params })
+      .set('user', user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<any>(this.baseURL + 'FinancialDiary/refreshdebtinvestmentforchart', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -193,7 +293,11 @@ export class financialsService {
     formData.append("currentvalue", currentvalue);
     formData.append("user", this.user);
 
-    return this.http.post<any>(this.baseURL + 'FinancialDiary/saveequityinvestmentreturndata', formData)
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/saveequityinvestmentreturndata', formData, { headers: headers})
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -206,7 +310,12 @@ export class financialsService {
     formData.append("type", type);
     formData.append("profile", profile);
     formData.append("user", this.user);
-    return this.http.post<any>(this.baseURL + 'FinancialDiary/saveprovidentfunddetails', formData)
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/saveprovidentfunddetails', formData , { headers: headers})
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -218,7 +327,11 @@ export class financialsService {
     formData.append("currentbalance", currentbalance);
     formData.append("user", this.user);
 
-    return this.http.post<any>(this.baseURL + 'FinancialDiary/adddebt', formData)
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/adddebt', formData, { headers: headers})
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -226,8 +339,14 @@ export class financialsService {
 
   getDebtAccountName(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<string[]>(this.baseURL + 'FinancialDiary/getdebtaccountname', {params})
+      .set('user', this.user);
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<string[]>(this.baseURL + 'FinancialDiary/getdebtaccountname', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
@@ -235,23 +354,33 @@ export class financialsService {
 
   getInvestmentAccountName(): Observable<any> {
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<string[]>(this.baseURL + 'FinancialDiary/getinvestmentaccountname', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<string[]>(this.baseURL + 'FinancialDiary/getinvestmentaccountname', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
 
   getDebtInvestmentForChart(): Observable<any> {
-  
     const params = new HttpParams()
-    .set('user', this.user);
-    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getdebtinvestmentforchart', {params})
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Returns[]>(this.baseURL + 'FinancialDiary/getdebtinvestmentforchart', { params, headers })
       .pipe(
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
-
 }
 export class InvestmentDetails {
   fundName: string;
@@ -291,7 +420,7 @@ export class DashboardAssetDetails {
   investmenttype: number;
   currentvalue: number;
   equity: number;
-  increased:boolean;
+  increased: boolean;
   user: string;
 }
 
