@@ -20,10 +20,7 @@
           <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/investmenttracker']">Analytics</a>
           </li>
-          <li *ngIf="loggedIn===true" class="nav-item">
-            <a class="nav-link text-dark" >{{user.firstName}}</a>
-          </li>
-          <a class="btn btn-outline" *ngIf="hideLogIn===false" (click)="signInWithGoogle()" role="button"
+            <a class="btn btn-outline" *ngIf="hideLogIn===false" (click)="signInWithGoogle()" role="button"
             style="text-transform:none">
             <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
@@ -35,6 +32,9 @@
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
             Sign Out
           </a>
+          <li *ngIf="loggedIn===true" class="nav-item">
+            <div class="gb_Bf gb_Sa gb_og gb_i"><a class="gb_D gb_Na gb_i" aria-label="Google Account"  role="button"  tabindex="0" aria-expanded="false"><img title="{{user.firstName}} {{user.lastName}}" class="image" src={{user.photoUrl}}  alt="" aria-hidden="true" data-noaft=""></a><div class="gb_0a"></div><div class="gb_Za"></div></div>
+            </li>
         </ul>
       </div>
     </div>

@@ -30,7 +30,7 @@ export class NavMenuComponent {
         localStorage.setItem('user', user.email);
         localStorage.setItem("jwt", user.idToken);
       }
-      //console.log(this.user);
+      console.log(this.user);
     });
   }
 
