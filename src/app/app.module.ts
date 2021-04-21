@@ -69,6 +69,7 @@ import { ProvidentFundCreateFormComponent } from './provident-fund-create-form/p
 import { SipCreateFormComponent } from './sip-create-form/sip-create-form.component';
 import { FundHouseIconComponent } from './common/fund-house-icon/fund-house-icon.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 const googleLoginOptions = {
   scope: 'nishantkj@gmail.com'
@@ -108,7 +109,8 @@ export function provideConfig() {
     EquityReturnCreateFormComponent,
     ProvidentFundCreateFormComponent,
     SipCreateFormComponent,
-    FundHouseIconComponent
+    FundHouseIconComponent,
+    ConfigurationComponent
   ],
   imports: [
     BrowserModule,

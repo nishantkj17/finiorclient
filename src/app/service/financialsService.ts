@@ -381,6 +381,66 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
+
+  getConfigurationSettings(): Observable<any> {
+    const params = new HttpParams()
+      .set('user', this.user);
+
+      const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Configuration>(this.baseURL + 'FinancialDiary/getconfigurationsettings', { params, headers })
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
+
+  saveProfileSettings(profiles: string): Observable<any> {
+    var formData: any = new FormData();
+    formData.append("profiles", profiles);
+    formData.append("user", this.user);
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/saveprofilessettings', formData, { headers: headers})
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
+
+  saveDebtAccountSettings(debtaccount: string): Observable<any> {
+    var formData: any = new FormData();
+    formData.append("debtaccount", debtaccount);
+    formData.append("user", this.user);
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/savedebtaccountsettings', formData, { headers: headers})
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
+
+  saveInvestmentAccountSettings(investmentaccount: string): Observable<any> {
+    var formData: any = new FormData();
+    formData.append("investmentaccount", investmentaccount);
+    formData.append("user", this.user);
+
+    const headers = new HttpHeaders()
+      .set('Authorization', this.token)
+      .set('User', this.user);
+
+    return this.http.post<any>(this.baseURL + 'FinancialDiary/saveinvestmentaccountsettings', formData, { headers: headers})
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
 }
 export class InvestmentDetails {
   fundName: string;
@@ -430,4 +490,8 @@ export class Debt {
   createddate: number;
   id: string;
   user: string;
+}
+export class Configuration{
+  profile: string[];
+  debtaccount: string[];
 }

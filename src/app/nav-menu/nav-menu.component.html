@@ -16,9 +16,15 @@
             [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/sipentrytracker']">Add Investments</a>
           </li>
-
+          <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-dark" [routerLink]="['/sipdetails']">SIP Details</a>
+          </li>
           <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/investmenttracker']">Analytics</a>
+          </li>
+          <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/configuration']"><i class="material-icons">settings</i></a>
           </li>
             <a class="btn btn-outline" *ngIf="hideLogIn===false" (click)="signInWithGoogle()" role="button"
             style="text-transform:none">

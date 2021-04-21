@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AlertDialogClass } from '../common/alert-dialog-class';
 import { InvestmentDetails } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-sip-edit-view-component',
@@ -15,7 +16,7 @@ export class SipEditViewComponent {
   investmentDetailsRequest: InvestmentDetails;
   investmentDetails: InvestmentDetails;
 
-  constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
+  constructor(private financialService: financialsService, private alertservice: AlertDialogClass, private _location: Location) {
     this.investmentDetailsRequest = new InvestmentDetails();
   }
   ngOnInit(): void {
@@ -50,5 +51,8 @@ export class SipEditViewComponent {
         this.alertservice.openAlertDialog(error);
       }
     );
+  }
+  backClicked() {
+    this._location.back();
   }
 }
