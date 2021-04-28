@@ -75,7 +75,7 @@ export class AnalyticsComponent {
     );
   }
   getPFReturnForChart() {
-    this.financialService.getPFReturnForChart(localStorage.getItem('user')).subscribe(
+    this.financialService.getPFReturnForChart().subscribe(
       (data: any) => {
         this.pfSavings = data as Returns;
       },

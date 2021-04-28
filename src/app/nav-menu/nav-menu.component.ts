@@ -18,6 +18,8 @@ export class NavMenuComponent {
   constructor(private fb: FormBuilder, private authService: SocialAuthService, private router: Router, private financialService: financialsService) { }
   isExpanded = false;
   @Output() isLoggedIn: EventEmitter<boolean> = new EventEmitter();
+  @Output() userEmail: EventEmitter<string> = new EventEmitter();
+  @Output() idToken: EventEmitter<string> = new EventEmitter();
   ngOnInit() {
 
     this.signinForm = this.fb.group({
@@ -27,10 +29,11 @@ export class NavMenuComponent {
       this.user = user;
       this.loggedIn = (user != null);
       if (user) {
-        localStorage.setItem('user', user.email);
-        localStorage.setItem("jwt", user.idToken);
+        localStorage.clear();
+        this.isLoggedIn.emit(true);
+        this.userEmail.emit(user.email);
+        this.idToken.emit(user.idToken);
       }
-      console.log(this.user);
     });
   }
 
@@ -39,16 +42,18 @@ export class NavMenuComponent {
   }
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  
+
     this.router.navigate(['dashboard'], {
     });
     this.hideLogIn = true;
   }
 
   signOut(): void {
+    localStorage.clear();
+    this.isLoggedIn.emit(false);
+    this.userEmail.emit('');
+    this.idToken.emit('');
     this.authService.signOut();
-    localStorage.removeItem('user');
-    localStorage.removeItem("jwt");
     this.hideLogIn = false;
   }
   collapse() {

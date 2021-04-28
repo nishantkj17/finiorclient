@@ -227,9 +227,9 @@ export class financialsService {
       );
   }
 
-  getPFReturnForChart(user: string): Observable<any> {
+  getPFReturnForChart(): Observable<any> {
     const params = new HttpParams()
-      .set('user', user);
+      .set('user', this.user);
 
       const headers = new HttpHeaders()
       .set('Authorization', this.token)
@@ -243,12 +243,13 @@ export class financialsService {
   }
 
   getAssetsDashboardData(): Observable<any> {
+    let user=localStorage.getItem('user');
     const params = new HttpParams()
-      .set('user', this.user);
+      .set('user', user);
 
       const headers = new HttpHeaders()
-      .set('Authorization', this.token)
-      .set('User', this.user)
+      .set('Authorization', localStorage.getItem('jwt'))
+      .set('User', user)
       .set('Content-Type', 'application/json');
 
     return this.http.get<DashboardAssetDetails[]>(this.baseURL + 'FinancialDiary/getassetsdashboarddata', { params, headers })
@@ -257,13 +258,14 @@ export class financialsService {
       );
   }
 
-  getDebtsDashboardData(user: string): Observable<any> {
+  getDebtsDashboardData(): Observable<any> {
+    let user=localStorage.getItem('user');
     const params = new HttpParams()
       .set('user', user);
 
       const headers = new HttpHeaders()
-      .set('Authorization', this.token)
-      .set('User', this.user)
+      .set('Authorization', localStorage.getItem('jwt'))
+      .set('User', user)
       .set('Content-Type', 'application/json');
 
     return this.http.get<Debt[]>(this.baseURL + 'FinancialDiary/getdebtsdashboarddata', { params, headers })
@@ -272,9 +274,9 @@ export class financialsService {
       );
   }
 
-  refreshDebtInvestmentForChart(user: string): Observable<any> {
+  refreshDebtInvestmentForChart(): Observable<any> {
     const params = new HttpParams()
-      .set('user', user);
+      .set('user', this.user);
 
       const headers = new HttpHeaders()
       .set('Authorization', this.token)

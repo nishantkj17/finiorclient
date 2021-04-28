@@ -30,6 +30,6 @@ export class InvestmentSavingsDetailsComponent implements OnInit {
   }
 
   public logOut = () => {
-    localStorage.removeItem("jwt");
+    localStorage.clear();
   }
 }

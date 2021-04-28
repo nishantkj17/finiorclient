@@ -19,7 +19,7 @@ export class DebtsDashboardComponent implements OnInit {
     this.getDebtDashboardData();
   }
   getDebtDashboardData() {
-    this.financialService.getDebtsDashboardData(localStorage.getItem('user')).subscribe(
+    this.financialService.getDebtsDashboardData().subscribe(
       (data: any) => {
         this.debtDasbhboardData = data as Debt[];
         this.debtDasbhboardData.forEach(element => {

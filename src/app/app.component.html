@@ -1,6 +1,6 @@
 
 <body>
-  <app-nav-menu (isLoggedIn)="AssignLogInStatus($event)"></app-nav-menu>
+  <app-nav-menu (isLoggedIn)="AssignLogInStatus($event)" (userEmail)="AssignUser($event)" (idToken)="AssignUserToken($event)"></app-nav-menu>
   <div class="container" *ngIf="loggedIn!==true">
     
   </div>

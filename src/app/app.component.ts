@@ -15,32 +15,29 @@ _router:string;
   loggedIn: boolean;
   visibility:boolean=false;
   constructor(private fb: FormBuilder, private authService: SocialAuthService, private router:Router, private activatedRoute:ActivatedRoute) {
-  
+
    }
 
   ngOnInit() { 
-    this.signinForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-    }); this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
-      //console.log(this.user);
-    });
-  }
-  signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-  signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-
-    }
   
-  signOut(): void {
-    this.authService.signOut();
   }
+ 
   AssignLogInStatus(login: boolean) {
     this.loggedIn = login;
     //console.log(login);
+  }
+
+  AssignUser(userEmail: string)
+  {
+    localStorage.removeItem('user');
+    localStorage.setItem('user', userEmail);
+    console.log(userEmail);
+  }
+
+  AssignUserToken(userToken: string)
+  {
+    localStorage.removeItem('jwt');
+    localStorage.setItem('jwt', userToken);
+    console.log(userToken);
   }
 }
