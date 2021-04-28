@@ -31,13 +31,13 @@ _router:string;
   {
     localStorage.removeItem('user');
     localStorage.setItem('user', userEmail);
-    console.log(userEmail);
+    //console.log(userEmail);
   }
 
   AssignUserToken(userToken: string)
   {
     localStorage.removeItem('jwt');
     localStorage.setItem('jwt', userToken);
-    console.log(userToken);
+    //console.log(userToken);
   }
 }
