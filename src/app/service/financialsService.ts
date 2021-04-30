@@ -467,6 +467,22 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
+
+  getDashboardChangeData(): Observable<any> {
+    let user = localStorage.getItem('user');
+    const params = new HttpParams()
+      .set('user', user);
+
+    const headers = new HttpHeaders()
+      .set('Authorization', localStorage.getItem('jwt'))
+      .set('User', user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Configuration>(this.baseURL + 'FinancialDiary/getdashboardchangedata', { params, headers })
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
 }
 export class InvestmentDetails {
   fundName: string;
@@ -520,4 +536,14 @@ export class Debt {
 export class Configuration {
   profile: string[];
   debtaccount: string[];
+}
+
+export class DashBoardChangeData
+{
+  assetchange :number;
+  assetincreased : boolean;
+  assetchangepercentage :number;
+  debtchange :number;
+  debtincreased :boolean;
+  debtchangepercentage :number;
 }

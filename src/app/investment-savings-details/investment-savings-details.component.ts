@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrintPDF } from '../common/print-pdf';
+import { DashBoardChangeData, financialsService, Returns } from '../service/financialsService';
 
 
 @Component({
@@ -10,13 +11,13 @@ import { PrintPDF } from '../common/print-pdf';
 export class InvestmentSavingsDetailsComponent implements OnInit {
   _router: string;
   showReports: boolean = false;
-
-  constructor(private printService: PrintPDF) {
+  public dashboardChangeData: DashBoardChangeData;
+  constructor(private printService: PrintPDF, private financialService: financialsService) {
 
   }
 
   ngOnInit(): void {
-   
+   this.getDashboardChangeData();
   }
   public showChart() {
     this.showReports = true;
@@ -31,5 +32,17 @@ export class InvestmentSavingsDetailsComponent implements OnInit {
 
   public logOut = () => {
     localStorage.clear();
+  }
+
+  getDashboardChangeData() {
+    this.financialService.getDashboardChangeData().subscribe(
+      (data: any) => {
+        this.dashboardChangeData = data as DashBoardChangeData;
+        console.log(this.dashboardChangeData);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

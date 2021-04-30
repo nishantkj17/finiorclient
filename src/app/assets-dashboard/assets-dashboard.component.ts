@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardAssetDetails } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
@@ -11,12 +11,16 @@ import { financialsService } from '../service/financialsService';
 export class AssetsDashboardComponent implements OnInit {
   dasbhboardData: DashboardAssetDetails[];
   totalSavings:number=0;
+  @Input() change: string;
+  @Input() increased: boolean;
+  @Input() percent: string;
   constructor(private financialService: financialsService, private router: Router) {
 
   }
 
   ngOnInit(): void {
     this.getDashboardData();
+    
   }
   getDashboardData() {
     this.financialService.getAssetsDashboardData().subscribe(

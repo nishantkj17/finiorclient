@@ -1,5 +1,5 @@
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Assets - &#8377; {{totalSavings}} </li>
+    <li class="breadcrumb-item active">Assets - &#8377; {{totalSavings}},  (<i *ngIf="increased===true" class="fas fa-arrow-up"></i><i *ngIf="increased===false" class="fas fa-arrow-down"></i> by {{change}} : {{percent}}%)</li>
 </ol>
 <div class="row">
     <div *ngFor="let asset of dasbhboardData" class="col-xl-3 col-md-6">
@@ -8,6 +8,7 @@
                 <div class="small text-white">{{asset.investmenttype}}</div>
                 <div *ngIf="asset.increased===true" class="small text-green"><i class="fas fa-arrow-up"></i></div>
                 <div *ngIf="asset.increased===false" class="small text-green"><i class="fas fa-arrow-down"></i></div>
+                
             </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
                 <a class="small text-white stretched-link" [routerLink]="['/investmenttracker']">&#8377;

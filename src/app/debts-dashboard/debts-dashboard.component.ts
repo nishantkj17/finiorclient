@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Debt } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
@@ -11,6 +11,9 @@ import { financialsService } from '../service/financialsService';
 export class DebtsDashboardComponent implements OnInit {
   debtDasbhboardData: Debt[];
   totalDebts:number=0;
+  @Input() change: string;
+  @Input() increased: boolean;
+  @Input() percent: string;
   constructor(private financialService: financialsService, private router: Router) {
 
   }
