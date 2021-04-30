@@ -113,7 +113,7 @@ export class financialsService {
     formData.append("user", user);
 
     const headers = new HttpHeaders()
-      .set('Authorization', localStorage.getItem('user'))
+      .set('Authorization', localStorage.getItem('jwt'))
       .set('User', user);
 
     return this.http.post<any>(this.baseURL + 'FinancialDiary/savereturns', formData, { headers: headers })
