@@ -18,6 +18,7 @@ export class FundHouseIconComponent implements OnInit {
   canara: string = 'assets/images/canara.png';
   quant: string = 'assets/images/quant.png';
   nippon: string = 'assets/images/nippon.png';
+  motilal: string = 'assets/images/motilal.png';
   fundIcon: string;
   constructor() {
 
@@ -63,6 +64,9 @@ export class FundHouseIconComponent implements OnInit {
         break;
       case findIcon('nippon'):
         this.fundIcon = this.nippon;
+        break;
+      case findIcon('motilal'):
+        this.fundIcon = this.motilal;
         break;
       default:
         this.fundIcon = this.icici;
