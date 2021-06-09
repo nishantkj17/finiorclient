@@ -23,7 +23,8 @@ export class MutualFundReturnCreateFormComponent implements OnInit {
     this.IsWait = true;
     this.financialService.saveReturns(this.investmentReturnRequest.profile, this.investmentReturnRequest.investedamount, this.investmentReturnRequest.currentvalue).subscribe(
       (data: any) => {
-        this.alertservice.openAlertDialog('Investment returns saved successfully.');
+        if (data == 1) { this.alertservice.openAlertDialog("Mutual fund returns saved successfully!"); }
+        else { this.alertservice.openAlertDialog("Mutual fund data already updated for the day!"); }
         this.IsWait = false;
       },
       (error) => {
@@ -33,4 +34,5 @@ export class MutualFundReturnCreateFormComponent implements OnInit {
       }
     );
   }
+
 }
