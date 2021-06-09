@@ -12,7 +12,7 @@ import { financialsService } from '../service/financialsService';
 export class NavMenuComponent {
   signinForm: FormGroup;
   user: SocialUser;
-  loggedIn: boolean;
+  loggedIn: boolean=false;
   hideLogIn: boolean = false;
   validLogin: boolean;
   constructor(private fb: FormBuilder, private authService: SocialAuthService, private router: Router, private financialService: financialsService) { }

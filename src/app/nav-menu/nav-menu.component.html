@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
       <a class="navbar-brand" [routerLink]="['/']">FinancialDiaryWeb</a>
@@ -45,4 +45,233 @@
       </div>
     </div>
   </nav>
+</header> -->
+<div id="preloader">
+  <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
+</div>  
+<!-- ***** Preloader End ***** -->
+<div class="sub-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-xs-12">
+        <ul class="left-info">
+
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="right-icons">
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Header -->
+
+<header class="">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><h2>Financial Diary</h2></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+          <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link current" [routerLink]="['/dashboard']">Home</a>
+        </li>
+
+          <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" [routerLink]="['/sipentrytracker']">Add Investments</a>
+        </li>
+        <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']"
+        [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" [routerLink]="['/sipdetails']">SIP Details</a>
+      </li>            
+      <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']">
+        <a class="nav-link" [routerLink]="['/investmenttracker']">Analytics</a>
+      </li>
+      <li *ngIf="loggedIn===true" class="nav-item" [routerLinkActive]="['link-active']">
+        <a class="nav-link" [routerLink]="['/configuration']"><i class="material-icons">settings</i></a>
+      </li>
+      <a class="btn btn-outline" *ngIf="hideLogIn===false" (click)="signInWithGoogle()" role="button"
+      style="text-transform:none">
+      <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+      Sign in
+    </a>
+    <a class="nav-link" *ngIf="loggedIn===true" (click)="signOut()" role="button"
+      style="text-transform:none">
+      <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+      Sign Out
+    </a>
+    <li *ngIf="loggedIn===true" class="nav-item">
+      <div class="gb_Bf gb_Sa gb_og gb_i"><a class="gb_D gb_Na gb_i" aria-label="Google Account"  role="button"  tabindex="0" aria-expanded="false"><img title="{{user.firstName}} {{user.lastName}}" class="image" src={{user.photoUrl}}  alt="" aria-hidden="true" data-noaft=""></a><div class="gb_0a"></div><div class="gb_Za"></div></div>
+      </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
+<div class="page-heading header-text">
+  
+</div>
+
+<div *ngIf="loggedIn===false" class="more-info about-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="more-info-content">
+          <div class="row">
+            <div class="col-md-6 align-self-center">
+              <div class="right-content">
+                <span>our solid background on finance</span>
+                <h2>Get to know about <em>our mission</em></h2>
+              <p>- Powerful analytics to track your Investments and Debts.
+
+               
+              <br>Supports four type of investments ranging from Equity, Mutual fund, EPFO and PPF.
+              <br>
+              - Portal is configurable to add or remove as many Debt account you may need.
+              <br>
+              - Monthly dashboard to show the change in investments and debts.
+              <br>
+              - Dashboard to list your monthly SIP so you make informed decision before starting new SIP.
+              <br>
+              - Create, search and update your monthly investment in a go.
+              <br>
+              - Analytics displayed in tabular as well as interactive charts.
+              <br>
+              - No registration required, login with your google account.
+              </p>
+
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="left-image">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img class="d-block w-100" src="../../assets/images/about-image.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="../../assets/images/dashboard.JPG" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="../../assets/images/Analytics1.JPG" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="../../assets/images/SIP.png" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="../../assets/images/Combinedmutualfund.png" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="../../assets/images/equity.png" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="../../assets/images/IndividualMutualfund.png" alt="Third slide">
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block w-100" src="../../assets/images/investmentdebt.png" alt="Third slide">
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div *ngIf="loggedIn===false" class="single-services">
+    <div  class="section-heading">
+      <h2>Our  <em>Services</em></h2>
+    </div>
+    <div class="container">
+      <div class="row" id="tabs">
+        <div class="col-md-4">
+          <ul>
+            <li><a href='#tabs-1'>Market Analysis <i class="fa fa-angle-right"></i></a></li>
+            <li><a href='#tabs-2'>Financial Data <i class="fa fa-angle-right"></i></a></li>
+            <li><a href='#tabs-3'>Accounting Service <i class="fa fa-angle-right"></i></a></li>
+            <li><a href='#tabs-4'>Overall Evaluation <i class="fa fa-angle-right"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-md-8">
+          <div id="carouselExampleIndicatorsCaption" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicatorsCaption" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicatorsCaption" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicatorsCaption" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="../../assets/images/single_service_01.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Market Analysis</h5>
+                  <p>Provide research based reccomendation based on in depth market analysis.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="../../assets/images/single_service_02.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Financial Data</h5>
+                  <p>Interpret complex financial data and enabling you to take informed decision.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="../../assets/images/single_service_03.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Accounting Service</h5>
+                  <p>Accounting of the monthly SIP and growth across the portfolio.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="../../assets/images/single_service_04.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Overall Evaluation</h5>
+                  <p>...</p>
+                </div>
+              </div>
+              
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicatorsCaption" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicatorsCaption" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+</div> 
+
+<!-- Footer Starts Here -->
+
