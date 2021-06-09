@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://finiorapi.eu-gb.cf.appdomain.cloud/'  
+  baseUrl: 'https://localhost:5001/'  
 };
 
 /*
