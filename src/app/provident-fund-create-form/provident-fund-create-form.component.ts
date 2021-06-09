@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { financialsService } from '../service/financialsService';
 import { InvestmentReturnDetails } from '../service/financialsService';
 import { AlertDialogClass } from '../common/alert-dialog-class';
@@ -11,7 +11,7 @@ import { AlertDialogClass } from '../common/alert-dialog-class';
 export class ProvidentFundCreateFormComponent implements OnInit {
   investmentReturnRequest: InvestmentReturnDetails;
   IsWait: boolean;
-  profile: any;
+  @Input() profile: [];
   selectedAction: string;
   constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
     this.investmentReturnRequest = new InvestmentReturnDetails();
@@ -20,7 +20,7 @@ export class ProvidentFundCreateFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.profile = ["Nishant Jha", "Ranjana Jha"];
+
   }
   saveProvidentFund() {
     this.IsWait = true;

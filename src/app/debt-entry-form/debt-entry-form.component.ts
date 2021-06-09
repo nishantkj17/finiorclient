@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AlertDialogClass } from '../common/alert-dialog-class';
 import { Debt } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
@@ -12,7 +12,7 @@ export class DebtEntryFormComponent implements OnInit {
   account: string[];
   IsWait: boolean;
   debtRequest: Debt;
-
+  @Input() profile: [];
   constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {
     this.debtRequest = new Debt();
   }

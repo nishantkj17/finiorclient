@@ -19,12 +19,12 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <app-sip-create-form *ngIf="selectedAction=='Add SIP Details'"></app-sip-create-form>
-        <app-mutual-fund-return-create-form *ngIf="selectedAction=='Save mutual fund Return'">
+        <app-sip-create-form [profile]="profile" *ngIf="selectedAction=='Add SIP Details'"></app-sip-create-form>
+        <app-mutual-fund-return-create-form [profile]="profile" *ngIf="selectedAction=='Save mutual fund Return'">
         </app-mutual-fund-return-create-form>
-        <app-provident-fund-create-form *ngIf="selectedAction=='Save provident fund'"></app-provident-fund-create-form>
-        <app-equity-return-create-form *ngIf="selectedAction=='Save Equity'"></app-equity-return-create-form>
-        <app-debt-entry-form *ngIf="selectedAction=='Add Debt'"></app-debt-entry-form>
+        <app-provident-fund-create-form [profile]="profile" *ngIf="selectedAction=='Save provident fund'"></app-provident-fund-create-form>
+        <app-equity-return-create-form [profile]="profile" *ngIf="selectedAction=='Save Equity'"></app-equity-return-create-form>
+        <app-debt-entry-form [profile]="profile" *ngIf="selectedAction=='Add Debt'"></app-debt-entry-form>
       </div>
     </div>
   </div>

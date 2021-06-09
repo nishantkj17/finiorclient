@@ -371,7 +371,21 @@ export class financialsService {
         //tap(data => console.log(JSON.stringify(data))),
       );
   }
+  getProfileName(): Observable<any> {
+    let user = localStorage.getItem('user');
+    const params = new HttpParams()
+      .set('user', user);
 
+    const headers = new HttpHeaders()
+      .set('Authorization', localStorage.getItem('jwt'))
+      .set('User', user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<string[]>(this.baseURL + 'FinancialDiary/getprofilename', { params, headers })
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
   getInvestmentAccountName(): Observable<any> {
     let user = localStorage.getItem('user');
     const params = new HttpParams()
