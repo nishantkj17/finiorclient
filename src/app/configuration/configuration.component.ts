@@ -28,7 +28,8 @@ export class ConfigurationComponent implements OnInit {
     this.IsWait = true;
     this.financialService.saveProfileSettings(this.profile).subscribe(
       (data: any) => {
-        this.alertservice.openAlertDialog('Profile added successfully.');
+        if (data == 1) { this.alertservice.openAlertDialog("Profile added successfully!"); }
+        else { this.alertservice.openAlertDialog("You have reached maximum limit(Two profiles per user) of profiles. "); }
         this.IsWait = false;
       },
       (error) => {
