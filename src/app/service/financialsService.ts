@@ -556,7 +556,7 @@ export class DashboardAssetDetails {
   user: string;
 }
 export class Debts {
-  DebtDataForChart: Debt[];
+  debtDataForChart: Debt[];
   chartLabels: string[];
   user: string;
 }
