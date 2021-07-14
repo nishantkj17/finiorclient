@@ -418,6 +418,22 @@ export class financialsService {
       );
   }
 
+  getDebtDataForChart(): Observable<any> {
+    let user = localStorage.getItem('user');
+    const params = new HttpParams()
+      .set('user', user);
+
+    const headers = new HttpHeaders()
+      .set('Authorization', localStorage.getItem('jwt'))
+      .set('User', user)
+      .set('Content-Type', 'application/json');
+
+    return this.http.get<Debts[]>(this.baseURL + 'FinancialDiary/getdebtdataforchart', { params, headers })
+      .pipe(
+        //tap(data => console.log(JSON.stringify(data))),
+      );
+  }
+
   getConfigurationSettings(): Observable<any> {
     let user = localStorage.getItem('user');
     const params = new HttpParams()
@@ -536,10 +552,14 @@ export class DashboardAssetDetails {
   investmenttype: number;
   currentvalue: number;
   equity: number;
-  increased: boolean;
+  increased: boolean; 
   user: string;
 }
-
+export class Debts {
+  DebtDataForChart: Debt[];
+  chartLabels: string[];
+  user: string;
+}
 export class Debt {
   accountname: string;
   currentbalance: number;

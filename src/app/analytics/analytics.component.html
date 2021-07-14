@@ -41,5 +41,12 @@
                 [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
             </canvas>
         </div>
+        <div class="col-lg-6" *ngIf="debtsTracker">
+            <h4>Debt</h4>
+            <canvas baseChart width="500" height="400" [datasets]="debtsTracker.debtDataForChart"
+                [labels]="debtsTracker.chartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+                [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+            </canvas>
+        </div>
     </div>
 </div>

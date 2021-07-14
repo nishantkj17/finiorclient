@@ -1,7 +1,8 @@
 import { Component, OnInit, ElementRef ,ViewChild } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Color } from 'ng2-charts';
-import { Returns } from '../service/financialsService';
+import { DebtsDashboardComponent } from '../debts-dashboard/debts-dashboard.component';
+import { Returns, Debts } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
 
 @Component({
@@ -14,6 +15,7 @@ export class AnalyticsComponent {
   public equityReturn: Returns;
   public pfSavings: Returns;
   public debtAndInvestment: Returns;
+  public debtsTracker: Debts;
   public lineChartOptions: (ChartOptions & { annotation?: any }) = {
     responsive: true,
 
@@ -40,6 +42,7 @@ export class AnalyticsComponent {
     this.getEquityReturnForChart();
     this.getPFReturnForChart();
     this.getDebtInvestmentForChart();
+    this.getDebtDataForChart();
   }
 
   getCombinedInvestmentDetailsForChart() {
@@ -89,6 +92,18 @@ export class AnalyticsComponent {
       (data: any) => {
         this.debtAndInvestment = data as Returns;
         console.log(this.debtAndInvestment);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getDebtDataForChart() {
+    this.financialService.getDebtDataForChart().subscribe(
+      (data: any) => {
+        this.debtsTracker = data as Debts;
+        console.log(this.debtsTracker);
       },
       (error) => {
         console.log(error);
