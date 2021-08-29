@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AlertDialogClass } from '../common/alert-dialog-class';
 import { InvestmentDetails } from '../service/financialsService';
 import { financialsService } from '../service/financialsService';
 import {Location} from '@angular/common';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-sip-edit-view-component',
@@ -16,9 +17,11 @@ export class SipEditViewComponent {
   investmentDetailsRequest: InvestmentDetails;
   investmentDetails: InvestmentDetails;
 
-  constructor(private financialService: financialsService, private alertservice: AlertDialogClass, private _location: Location) {
+  constructor(public dialogRef: MatDialogRef<SipEditViewComponent>,@Inject(MAT_DIALOG_DATA) public data: DialogData,private financialService: financialsService, private alertservice: AlertDialogClass, private _location: Location) {
     this.investmentDetailsRequest = new InvestmentDetails();
+    this.investmentDetails=data.name as InvestmentDetails;
   }
+
   ngOnInit(): void {
     this.dates = ["1", "2", "3", "4", "5", "6",
       "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
@@ -26,8 +29,8 @@ export class SipEditViewComponent {
       "27", "28"
     ];
     this.profile = ["Nishant Jha", "Ranjana Jha"];
-    this.investmentDetails = history.state as InvestmentDetails;
   }
+
   updateInvestment() {
     this.IsWait = true;
     this.financialService.updateSipDetails(this.investmentDetails).subscribe(
@@ -40,6 +43,7 @@ export class SipEditViewComponent {
       }
     );
   }
+
   populateFundDetails() {
     this.financialService.getFilteredInvestmentDetails(this.investmentDetailsRequest.date, this.investmentDetailsRequest.profile).subscribe(
       (data: any) => {
@@ -52,7 +56,15 @@ export class SipEditViewComponent {
       }
     );
   }
+
   backClicked() {
     this._location.back();
   }
+  
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+export interface DialogData {
+  name: InvestmentDetails;
 }

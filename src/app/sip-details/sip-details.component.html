@@ -5,7 +5,7 @@
   <div class="card mb-4">
     <div class="card-header">
       <div class="col col-lg-12">
-        <mat-card-subtitle>SIP Details</mat-card-subtitle>
+        <mat-card-subtitle>SIP Details: {{cumulativeSIP}}</mat-card-subtitle>
       </div>
     </div>
     <div class="card-body">
@@ -82,7 +82,7 @@
           <ng-container matColumnDef="editdelete">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit / Delete </th>
             <td mat-cell *matCellDef="let element">
-              <button class="buttonmargin" (click)="redirect(element)"mat-mini-fab color="basic"
+              <button class="buttonmargin" (click)="openDialogToEdit(element)"mat-mini-fab color="basic"
                 aria-label="Edit">
                 <mat-icon>edit</mat-icon>&nbsp;&nbsp; 
               </button>

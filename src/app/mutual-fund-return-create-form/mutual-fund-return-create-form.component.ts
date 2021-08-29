@@ -13,7 +13,6 @@ export class MutualFundReturnCreateFormComponent implements OnInit {
   IsWait: boolean;
   @Input() profile: [];
   ngOnInit(): void {
-
     this.IsWait = false;
   }
   constructor(private financialService: financialsService, private alertservice: AlertDialogClass) {

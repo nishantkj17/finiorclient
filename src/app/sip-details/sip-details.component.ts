@@ -9,6 +9,7 @@ import { financialsService } from '../service/financialsService';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { SipEditViewComponent } from '../sip-edit-view/sip-edit-view.component';
 
 @Component({
   selector: 'app-sip-details',
@@ -27,7 +28,8 @@ export class SipDetailsComponent implements OnInit {
   private paginator: MatPaginator;
   private sort: MatSort;
   dsp:string='assets/images/dsp.png';
-
+  cumulativeSIP: number;
+  
   constructor(private financialService: financialsService, private router: Router, private dialog: MatDialog,
     private snackBar: MatSnackBar) {
     this.investmentDetailsSearchRequest = new InvestmentDetails();
@@ -73,12 +75,16 @@ export class SipDetailsComponent implements OnInit {
       (data: any) => {
         if (data.length > 0) {
           this.investmentDetails = data as InvestmentDetails[];
-
           this.dataSource = new MatTableDataSource<InvestmentDetails>(this.investmentDetails);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
           this.paginationNumber.push(this.investmentDetails.length);
           this.IsWait = false;
+          this.cumulativeSIP=0;
+          this.investmentDetails.forEach(element => {
+            console.log(element.denomination);
+            this.cumulativeSIP += Number(element.denomination);
+          });
         }
       },
       (error) => {
@@ -93,7 +99,17 @@ export class SipDetailsComponent implements OnInit {
       state: item,
     });
   }
+  openDialogToEdit(item: InvestmentDetails): void {
+    const dialogRef = this.dialog.open(SipEditViewComponent, {
+      width: '700px',
+      data: {name: item}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.animal = result;
+    });
+  }
   deleteInvestment(item: InvestmentDetails) {
     this.openDialog(item);
   }

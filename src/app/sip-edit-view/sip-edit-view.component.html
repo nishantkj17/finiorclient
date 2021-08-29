@@ -32,8 +32,8 @@
     </div>
     <br />
     <div class="col col-lg-12">
-      <button (click)='updateInvestment()' mat-raised-button color="primary">Update Investment</button>&nbsp; &nbsp; &nbsp; 
-      <button (click)='backClicked()' mat-raised-button color="primary">Back</button>
+      <button mat-button (click)="updateInvestment()" cdkFocusInitial>Update Investment</button>
+      <button mat-button (click)="onNoClick()">Close</button>
     </div>
   </div>
 
