@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SipEditViewComponent } from './sip-edit-view.component';
 
@@ -6,7 +6,7 @@ describe('SipEditViewComponent', () => {
   let component: SipEditViewComponent;
   let fixture: ComponentFixture<SipEditViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SipEditViewComponent ]
     })

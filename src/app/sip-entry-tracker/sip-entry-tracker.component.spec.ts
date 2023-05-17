@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SipEntryTrackerComponent } from './sip-entry-tracker.component';
 
@@ -6,7 +6,7 @@ describe('SipEntryTrackerComponent', () => {
   let component: SipEntryTrackerComponent;
   let fixture: ComponentFixture<SipEntryTrackerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SipEntryTrackerComponent ]
     })

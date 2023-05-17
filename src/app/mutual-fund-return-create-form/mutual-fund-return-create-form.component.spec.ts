@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MutualFundReturnCreateFormComponent } from './mutual-fund-return-create-form.component';
 
@@ -6,7 +6,7 @@ describe('MutualFundReturnCreateFormComponent', () => {
   let component: MutualFundReturnCreateFormComponent;
   let fixture: ComponentFixture<MutualFundReturnCreateFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MutualFundReturnCreateFormComponent ]
     })

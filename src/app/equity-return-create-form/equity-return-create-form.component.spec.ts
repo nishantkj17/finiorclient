@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { EquityReturnCreateFormComponent } from './equity-return-create-form.component';
 
@@ -6,7 +6,7 @@ describe('EquityReturnCreateFormComponent', () => {
   let component: EquityReturnCreateFormComponent;
   let fixture: ComponentFixture<EquityReturnCreateFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ EquityReturnCreateFormComponent ]
     })
