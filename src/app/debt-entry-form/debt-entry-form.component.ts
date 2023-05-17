@@ -43,7 +43,7 @@ export class DebtEntryFormComponent implements OnInit {
         this.account = data as string[];
       },
       (error) => {
-        this.alertservice.openAlertDialog(error);
+        this.alertservice.openAlertDialog(error.message);
       }
     );
   }
@@ -57,7 +57,7 @@ export class DebtEntryFormComponent implements OnInit {
         else { this.alertservice.openAlertDialog("Chart data already updated for the day!"); }
       },
       (error) => {
-        this.alertservice.openAlertDialog(error);
+        this.alertservice.openAlertDialog(error.message);
       }
     );
   }

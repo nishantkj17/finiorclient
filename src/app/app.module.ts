@@ -70,6 +70,7 @@ import { SipCreateFormComponent } from './sip-create-form/sip-create-form.compon
 import { FundHouseIconComponent } from './common/fund-house-icon/fund-house-icon.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ConfigurationComponent } from './configuration/configuration.component';
+import { LoginPopupComponent } from './login-popup/login-popup.component';
 
 const googleLoginOptions = {
   scope: 'nishantkj@gmail.com'
@@ -110,7 +111,8 @@ export function provideConfig() {
     ProvidentFundCreateFormComponent,
     SipCreateFormComponent,
     FundHouseIconComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    LoginPopupComponent
   ],
   imports: [
     BrowserModule,

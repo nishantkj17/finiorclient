@@ -581,3 +581,10 @@ export class DashBoardChangeData
   debtincreased :boolean;
   debtchangepercentage :number;
 }
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  constructor() { }
+}

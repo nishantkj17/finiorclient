@@ -10,6 +10,7 @@ import { financialsService } from '../service/financialsService';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
+  showLoginPopup = false;
   signinForm: FormGroup;
   user: SocialUser;
   loggedIn: boolean=false;
@@ -36,7 +37,9 @@ export class NavMenuComponent {
       }
     });
   }
-
+  openLoginPopup(): void {
+    this.showLoginPopup = true;
+  }
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
